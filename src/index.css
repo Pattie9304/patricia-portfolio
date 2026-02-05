@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #6366f1;
+  --color-brand-secondary: #ec4899;
+  --color-brand-dark: #0f172a;
+}
+
+@theme {
+  /* Tu paleta personalizada */
+  --color-page-bg: #BAE2E0;      /* Aguamarina suave */
+  --color-brand-main: #4A3751;   /* Ciruela (Nombre y Botones) */
+  --color-brand-accent: #CD5F6A; /* Coral (Párrafos y Menú) */
+  
+  /* Sobreescribimos el fondo por defecto del body */
+  --color-background: var(--color-page-bg);
+}
+
+body {
+  background-color: var(--color-page-bg);
+  color: var(--color-brand-main);
+}
