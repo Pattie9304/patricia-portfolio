@@ -1,4 +1,12 @@
 // src/data/projects.js
+import jetDevsImg from '../assets/projects/JetDevs__thumbnail.png';
+import medicoConSentidoImg from '../assets/projects/MedicoConSentido__thumbnail.png';
+import barcolanaImg from '../assets/projects/Barcolana__thumbnail.png';
+import orchidHouseImg from '../assets/projects/OrchidHouse__thumbnail.png';
+import autoCuidadoImg from '../assets/projects/AutoCuidado__thumbnail.png';
+import hammerStrenghtImg from '../assets/projects/HammerStrength__thumbnail.png';
+import gacetaUNAMWireframesImg from '../assets/projects/GacetaUNAM__Wireframes_thumbnail.png';
+import gacetaUNAMResearchImg from '../assets/projects/GacetaUNAM__Research_thumbnail.png';
 
 export const projects = [
   {
@@ -9,7 +17,7 @@ export const projects = [
     longDesc: "El proyecto principal de TripleTen. Optimicé la arquitectura de componentes y la gestión de estado para mejorar la escalabilidad y el rendimiento.",
     tech: ["React", "CSS Modules", "API Rest"],
     links: { demo: "#", code: "#" },
-    image: "https://via.placeholder.com/600x400?text=JetDevs"
+    image: jetDevsImg
   },
   {
     id: 2,
@@ -19,7 +27,7 @@ export const projects = [
     longDesc: "Desarrollo de newsletters con enfoque en accesibilidad, garantizando legibilidad en todos los clientes de correo y bajo estándares WCAG.",
     tech: ["HTML", "MJML", "QA Testing"],
     links: { demo: "#", code: "#" },
-    image: "https://via.placeholder.com/600x400?text=Newsletters+Medico"
+    image: medicoConSentidoImg
   },
   {
     id: 3,
@@ -29,7 +37,7 @@ export const projects = [
     longDesc: "Creación de piezas gráficas informativas enfocadas en la experiencia del paciente y la claridad visual.",
     tech: ["Figma", "Design System"],
     links: { demo: "#", code: "#" },
-    image: "https://via.placeholder.com/600x400?text=Infografia+Medico"
+    image: autoCuidadoImg
   },
   {
     id: 4,
@@ -39,7 +47,7 @@ export const projects = [
     longDesc: "Conversión de diseños complejos a código HTML/CSS responsivo, manteniendo una fidelidad total a la propuesta visual original.",
     tech: ["HTML5", "CSS3", "Responsive"],
     links: { demo: "#", code: "#" },
-    image: "https://via.placeholder.com/600x400?text=Barcolana"
+    image: barcolanaImg
   },
   {
     id: 5,
@@ -49,7 +57,7 @@ export const projects = [
     longDesc: "Maquetación de diseño y desarrollo de lógica en JavaScript para la gestión de formularios de contacto y validaciones.",
     tech: ["HTML5", "JavaScript", "CSS3"],
     links: { demo: "#", code: "#" },
-    image: "https://via.placeholder.com/600x400?text=Hammer+Strength"
+    image: hammerStrenghtImg
   },
   {
     id: 6,
@@ -59,26 +67,26 @@ export const projects = [
     longDesc: "Integración de diseño de interfaz con desarrollo web para crear una presencia digital elegante y funcional.",
     tech: ["Figma", "Development", "UI Design"],
     links: { demo: "#", code: "#" },
-    image: "https://via.placeholder.com/600x400?text=Orchid+House"
+    image: orchidHouseImg
   },
   {
     id: 7,
-    title: "Gaceta UNAM - UI Design",
+    title: "Gaceta UNAM - Wireframes",
     category: "UX/UI",
-    description: "Interfaz de usuario para la plataforma digital.",
-    longDesc: "Diseño de la capa visual final, enfocándose en la jerarquía tipográfica y la identidad institucional de la UNAM.",
+    description: "Arquitectura de información.",
+    longDesc: "Desarrollo de wireframes de baja fidelidad basados en un profundo proceso de UX Research y pruebas con usuarios.",
     tech: ["Figma", "UI Design", "Prototyping"],
     links: { demo: "#", code: "#" },
-    image: "https://via.placeholder.com/600x400?text=Gaceta+UI"
+    image: gacetaUNAMWireframesImg
   },
   {
     id: 8,
-    title: "Gaceta UNAM - Wireframes & Research",
+    title: "Gaceta UNAM - Research",
     category: "UX/UI",
-    description: "Investigación y arquitectura de información.",
-    longDesc: "Desarrollo de wireframes de baja y alta fidelidad basados en un profundo proceso de UX Research y pruebas con usuarios.",
+    description: "Investigación",
+    longDesc: "Ejecución del proceso de UX Research y entrevistas con usuarios.",
     tech: ["UX Research", "Wireframing", "User Testing"],
     links: { demo: "#", code: "#" },
-    image: "https://via.placeholder.com/600x400?text=Gaceta+Research"
+    image: gacetaUNAMResearchImg
   }
 ];
