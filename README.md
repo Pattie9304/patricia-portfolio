@@ -1,16 +1,32 @@
-# React + Vite
+# 🧦 Patricia Higuera | Front-End Portfolio 2026
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¡Bienvenida/o! Este es mi portafolio profesional, diseñado y desarrollado para mostrar el equilibrio entre **ingeniería robusta**, **diseño centrado en el usuario** y **accesibilidad**.
 
-Currently, two official plugins are available:
+> "Construyendo interfaces accesibles y código robusto con un toque de color."
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎨 El Concepto
+El portafolio utiliza una paleta de colores con personalidad (#BAE2E0, #4A3751, #CD5F6A) y una experiencia de usuario fluida mediante micro-interacciones, reflejando mi rol híbrido como **Front-End Engineer & Design Lead**.
 
-## React Compiler
+## 🚀 Stack Tecnológico
+Este proyecto fue construido utilizando herramientas modernas para garantizar rendimiento y mantenibilidad:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Framework:** [React 18+](https://reactjs.org/) (Vite como bundler).
+* **Estilos:** [Tailwind CSS v4](https://tailwindcss.com/) (Arquitectura basada en utilidades).
+* **Animaciones:** [Framer Motion](https://www.framer.com/motion/) (Scroll reveal y transiciones de estado).
+* **Iconografía:** [Lucide React](https://lucide.dev/) e iconos oficiales de tecnologías.
+* **Accesibilidad:** Cumplimiento de estándares **WCAG AA**.
 
-## Expanding the ESLint configuration
+## 🛠️ Características Principales
+- **Filtrado Dinámico:** Sistema de selección de proyectos por categoría (React/JS, UX/UI, Accesibilidad).
+- **Responsive Design:** Optimizado para dispositivos móviles, tablets y desktop.
+- **Scroll Reveal:** Animaciones suaves de aparición al navegar por las secciones.
+- **Performance:** Carga optimizada de assets y componentes ligeros.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Estructura del Proyecto
+```text
+src/
+ ├── assets/             # Imágenes de proyectos y recursos estáticos.
+ ├── components/         # Componentes reutilizables (Hero, ProjectCard, etc.).
+ ├── data/               # Single Source of Truth para el contenido de proyectos.
+ ├── App.jsx             # Lógica principal y estructura del layout.
+ └── index.css           # Configuración de Tailwind v4 y variables de tema.
