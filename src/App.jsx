@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Download, Code, Layout, Users, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from './data/projects';
+import patriciaImg from './assets/PatriciaHiguera.png';
 
 const FadeIn = ({ children, delay = 0 }) => (
   <motion.div
@@ -231,8 +232,7 @@ const App = () => {
               
               <div className="relative overflow-hidden rounded-xl bg-brand-main">
                 <img 
-                  src="../src/assets/PatriciaHiguera.png" 
-                  alt="Patricia Higuera" 
+                  src={patriciaImg} alt="Patricia Higuera" 
                   className="w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-700 ease-in-out transform hover:scale-105"
                 />
               </div>
