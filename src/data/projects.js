@@ -16,7 +16,7 @@ export const projects = [
     description: "Plataforma de gestión de equipos técnicos.",
     longDesc: "El proyecto principal de TripleTen. Optimicé la arquitectura de componentes y la gestión de estado para mejorar la escalabilidad y el rendimiento.",
     tech: ["React", "CSS Modules", "API Rest"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "https://pattie9304.github.io/flight-status-frontend/", code: "https://github.com/Pattie9304/flight-status-frontend" },
     image: jetDevsImg
   },
   {

@@ -115,10 +115,10 @@ const App = () => {
                   
                   {/* Enlaces con iconos */}
                   <div className="flex justify-between items-center border-t border-brand-main/10 pt-5">
-                  <a href={project.links.demo} className="flex items-center gap-2 text-brand-main font-black text-sm hover:underline">
+                  <a href={project.links.demo} rel="noreferrer" target="_blank" className="flex items-center gap-2 text-brand-main font-black text-sm hover:underline">
                     <ExternalLink size={18} /> DEMO
                   </a>
-                  <a href={project.links.code} className="flex items-center gap-2 text-brand-accent font-black text-sm hover:underline">
+                  <a href={project.links.code} rel="noreferrer" target="_blank" className="flex items-center gap-2 text-brand-accent font-black text-sm hover:underline">
                     <Github size={18} /> CÓDIGO
                   </a>
                   </div>
@@ -213,7 +213,7 @@ const App = () => {
               
               <div className="relative overflow-hidden rounded-xl bg-brand-main">
                 <img 
-                  src="/tu-foto-profesional.jpg" 
+                  src="../src/assets/PatriciaHiguera.png" 
                   alt="Patricia Higuera" 
                   className="w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-700 ease-in-out transform hover:scale-105"
                 />
@@ -269,15 +269,15 @@ const App = () => {
       {/* FOOTER */}
       <footer className="py-16 bg-white border-t border-brand-accent/20 text-center">
       <div className="flex justify-center gap-8 mb-10">
-        <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noreferrer" 
+        <a href="www.linkedin.com/in/patriciahigueradesigner" target="_blank" rel="noreferrer" 
         className="text-brand-main hover:text-brand-accent transition-colors scale-125">
           <Linkedin size={28}/>
         </a>
-        <a href="https://github.com/tu-usuario" target="_blank" rel="noreferrer"
+        <a href="https://github.com/Pattie9304" target="_blank" rel="noreferrer"
         className="text-brand-main hover:text-brand-accent transition-colors scale-125">
           <Github size={28}/>
         </a>
-        <a href="mailto:tu-correo@ejemplo.com" 
+        <a href="mailto:patricia.higuera@outlook.com" 
         className="text-brand-main hover:text-brand-accent transition-colors scale-125">
           <Mail size={28}/>
         </a>
