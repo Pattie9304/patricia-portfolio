@@ -114,15 +114,33 @@ const App = () => {
                   </div>
                   
                   {/* Enlaces con iconos */}
-                  <div className="flex justify-between items-center border-t border-brand-main/10 pt-5">
-                  <a href={project.links.demo} rel="noreferrer" target="_blank" className="flex items-center gap-2 text-brand-main font-black text-sm hover:underline">
-                    <ExternalLink size={18} /> DEMO
-                  </a>
-                  <a href={project.links.code} rel="noreferrer" target="_blank" className="flex items-center gap-2 text-brand-accent font-black text-sm hover:underline">
-                    <Github size={18} /> CÓDIGO
-                  </a>
-                  </div>
-                </div>
+                  <div className="flex justify-between items-center border-t border-brand-main/10 pt-5 mt-auto">
+                  {/* Botón DEMO / BEHANCE: Solo se muestra si 'demo' tiene contenido y no es '#' */}
+                  {project.links.demo && project.links.demo !== "#" && (
+                    <a
+                    href={project.links.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 text-brand-main font-black text-xs hover:text-brand-accent transition-colors"
+                    >
+                      <ExternalLink size={16} />
+                      {project.category === "UX/UI" ? "VER DISEÑO" : "DEMO LIVE"}
+                      </a>
+                      )}
+                      
+                      {/* Botón CÓDIGO: Solo se muestra si 'code' tiene contenido y no es '#' */}
+                      {project.links.code && project.links.code !== "#" && (
+                        <a
+                        href={project.links.code}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-2 text-brand-accent font-black text-xs hover:opacity-70 transition-opacity"
+                        >
+                          <Github size={16} /> CÓDIGO
+                          </a>
+                          )}
+                          </div>
+                        </div>
               </motion.div>
             ))}
           </AnimatePresence>

@@ -26,7 +26,7 @@ export const projects = [
     description: "Comunicación médica inclusiva (F2F y Conecta).",
     longDesc: "Desarrollo de newsletters con enfoque en accesibilidad, garantizando legibilidad en todos los clientes de correo y bajo estándares WCAG.",
     tech: ["HTML", "MJML", "QA Testing"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "https://www.behance.net/gallery/199490947/Mdico-conSentido-Email-Redesign", code: "#" },
     image: medicoConSentidoImg
   },
   {
@@ -36,7 +36,7 @@ export const projects = [
     description: "Diseño visual para Médico ConSentido.",
     longDesc: "Creación de piezas gráficas informativas enfocadas en la experiencia del paciente y la claridad visual.",
     tech: ["Figma", "Design System"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "https://www.behance.net/gallery/107799015/Infografia-Mdico-ConSentido-Sanofi", code: "" },
     image: autoCuidadoImg
   },
   {
@@ -46,7 +46,7 @@ export const projects = [
     description: "Transformación de diseño gráfico a código Pixel-Perfect.",
     longDesc: "Conversión de diseños complejos a código HTML/CSS responsivo, manteniendo una fidelidad total a la propuesta visual original.",
     tech: ["HTML5", "CSS3", "Responsive"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "https://www.behance.net/gallery/107557151/Barcolana-Web-Design", code: "" },
     image: barcolanaImg
   },
   {
@@ -56,7 +56,7 @@ export const projects = [
     description: "Desarrollo web con lógica de interacción.",
     longDesc: "Maquetación de diseño y desarrollo de lógica en JavaScript para la gestión de formularios de contacto y validaciones.",
     tech: ["HTML5", "JavaScript", "CSS3"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "https://www.behance.net/gallery/107558735/Hammer-Strength-Web-Design", code: "" },
     image: hammerStrenghtImg
   },
   {
@@ -66,7 +66,7 @@ export const projects = [
     description: "Web Design & Development.",
     longDesc: "Integración de diseño de interfaz con desarrollo web para crear una presencia digital elegante y funcional.",
     tech: ["Figma", "Development", "UI Design"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "https://www.behance.net/gallery/107559393/Orchid-House-Hotels-Web-Design", code: "" },
     image: orchidHouseImg
   },
   {
@@ -76,7 +76,7 @@ export const projects = [
     description: "Arquitectura de información.",
     longDesc: "Desarrollo de wireframes de baja fidelidad basados en un profundo proceso de UX Research y pruebas con usuarios.",
     tech: ["Figma", "UI Design", "Prototyping"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "https://www.behance.net/gallery/199491891/Gaceta-UNAM-Wireframe", code: "" },
     image: gacetaUNAMWireframesImg
   },
   {
@@ -86,7 +86,7 @@ export const projects = [
     description: "Investigación",
     longDesc: "Ejecución del proceso de UX Research y entrevistas con usuarios.",
     tech: ["UX Research", "Wireframing", "User Testing"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "https://www.behance.net/gallery/114889859/Gaceta-UNAM-Research", code: "" },
     image: gacetaUNAMResearchImg
   }
 ];
