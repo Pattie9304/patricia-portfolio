@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, ExternalLink, Download, Code, Layout, Users, Za
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from './data/projects';
 import patriciaImg from './assets/PatriciaHiguera.png';
+import myCV from './assets/Patricia_Higuera_CV.pdf';
 
 const FadeIn = ({ children, delay = 0 }) => (
   <motion.div
@@ -40,7 +41,7 @@ const App = () => {
               Ver Proyectos
             </a>
             <a
-            href="/Patricia_Higuera_CV.pdf" // Nombre exacto de tu archivo en la carpeta public
+            href={myCV}
             download="Patricia_Higuera_CV.pdf"
             className="border-2 border-brand-main text-brand-main px-8 py-3 rounded-full font-bold hover:bg-brand-main hover:text-white transition flex items-center gap-2"
             >
