@@ -50,7 +50,72 @@ const App = () => {
         </motion.div>
       </header>
 
-      {/* 2. PROYECTOS CON FILTROS */}
+      {/* 2. ACERCA DE */}
+      <section id="sobre-mi" className="py-24 px-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          
+          {/* Columna de Imagen */}
+          <FadeIn>
+            <div className="relative group">
+              {/* Marcos decorativos con tus colores */}
+              <div className="absolute -inset-4 border-2 border-brand-accent rounded-2xl -rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
+              <div className="absolute -inset-4 bg-brand-main/10 rounded-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500 -z-10"></div>
+              
+              <div className="relative overflow-hidden rounded-xl bg-brand-main">
+                <img 
+                  src={patriciaImg} alt="Patricia Higuera" 
+                  className="w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-700 ease-in-out transform hover:scale-105"
+                />
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Columna de Texto */}
+          <div className="flex flex-col gap-6">
+            <FadeIn delay={0.2}>
+              <h2 className="text-4xl font-black text-brand-main italic">
+                Detrás del código...
+              </h2>
+            </FadeIn>
+
+            <FadeIn delay={0.4}>
+              <div className="space-y-4 text-brand-main text-lg leading-relaxed">
+                <p>
+                  Soy **Front-End Engineer y Design Lead** con 8 años de trayectoria creando soluciones web escalables en entornos globales como Amex GBT.
+                </p>
+                <p>
+                  Me especializo en **React, accesibilidad** y en unir la visión de negocio con código impecable. Mi enfoque es crear interfaces que no solo se vean bien, sino que funcionen para todos.
+                </p>
+                <p className="text-brand-accent font-medium italic">
+                  Fuera del modo dark, soy quien probablemente traiga los calcetines más coloridos a la oficina y el chiste preciso para que el equipo trabaje con la mejor energía. 🧦
+                </p>
+              </div>
+            </FadeIn>
+
+            {/* Skills Visuales */}
+            <FadeIn delay={0.6}>
+              <div className="mt-8">
+                <h4 className="text-xs font-black uppercase tracking-widest text-brand-accent mb-6">
+                  Stack Tecnológico & Herramientas
+                </h4>
+                <div className="flex flex-wrap gap-6 items-center grayscale opacity-70 hover:opacity-100 transition-opacity">
+                  {/* Aquí puedes usar iconos de Lucide o simplemente etiquetas estilizadas */}
+                  {['JavaScript', 'React', 'Figma', 'Node.js', 'Tailwind', 'Git'].map((skill) => (
+                    <span 
+                      key={skill} 
+                      className="text-sm font-bold border-b-2 border-brand-accent/30 py-1 hover:border-brand-accent transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. PROYECTOS CON FILTROS */}
       <section id="proyectos" className="py-20 px-6 max-w-7xl mx-auto">
         <FadeIn>
         {/* Filtros con tu paleta */}
@@ -148,7 +213,7 @@ const App = () => {
         </motion.div>
       </section>
       
-      {/* 3. MI PROCESO */}
+      {/* 4. MI PROCESO */}
       <section id="proceso" className="py-24 bg-brand-main text-white px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
@@ -215,71 +280,6 @@ const App = () => {
                 </div>
               </FadeIn>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. ACERCA DE */}
-      <section id="sobre-mi" className="py-24 px-6 max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          
-          {/* Columna de Imagen */}
-          <FadeIn>
-            <div className="relative group">
-              {/* Marcos decorativos con tus colores */}
-              <div className="absolute -inset-4 border-2 border-brand-accent rounded-2xl -rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
-              <div className="absolute -inset-4 bg-brand-main/10 rounded-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500 -z-10"></div>
-              
-              <div className="relative overflow-hidden rounded-xl bg-brand-main">
-                <img 
-                  src={patriciaImg} alt="Patricia Higuera" 
-                  className="w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-700 ease-in-out transform hover:scale-105"
-                />
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* Columna de Texto */}
-          <div className="flex flex-col gap-6">
-            <FadeIn delay={0.2}>
-              <h2 className="text-4xl font-black text-brand-main italic">
-                Detrás del código...
-              </h2>
-            </FadeIn>
-
-            <FadeIn delay={0.4}>
-              <div className="space-y-4 text-brand-main text-lg leading-relaxed">
-                <p>
-                  Soy **Front-End Engineer y Design Lead** con 8 años de trayectoria creando soluciones web escalables en entornos globales como Amex GBT.
-                </p>
-                <p>
-                  Me especializo en **React, accesibilidad** y en unir la visión de negocio con código impecable. Mi enfoque es crear interfaces que no solo se vean bien, sino que funcionen para todos.
-                </p>
-                <p className="text-brand-accent font-medium italic">
-                  Fuera del modo dark, soy quien probablemente traiga los calcetines más coloridos a la oficina y el chiste preciso para que el equipo trabaje con la mejor energía. 🧦
-                </p>
-              </div>
-            </FadeIn>
-
-            {/* Skills Visuales */}
-            <FadeIn delay={0.6}>
-              <div className="mt-8">
-                <h4 className="text-xs font-black uppercase tracking-widest text-brand-accent mb-6">
-                  Stack Tecnológico & Herramientas
-                </h4>
-                <div className="flex flex-wrap gap-6 items-center grayscale opacity-70 hover:opacity-100 transition-opacity">
-                  {/* Aquí puedes usar iconos de Lucide o simplemente etiquetas estilizadas */}
-                  {['JavaScript', 'React', 'Figma', 'Node.js', 'Tailwind', 'Git'].map((skill) => (
-                    <span 
-                      key={skill} 
-                      className="text-sm font-bold border-b-2 border-brand-accent/30 py-1 hover:border-brand-accent transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </FadeIn>
           </div>
         </div>
       </section>
