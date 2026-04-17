@@ -1,74 +1,15 @@
-/* Importación de las capas base de Tailwind */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss"; /* Esta es la forma oficial en v4 */
 
-:root {
-  /* Definimos tus colores como variables para fácil mantenimiento */
-  --brand-plum: #4A3751;
-  --brand-coral: #EB5F6B;
-  --brand-blue: #BAE2E0;
-  --brand-cream: #F9F9F4;
+@theme {
+  --color-brand-plum: #4A3751;
+  --color-brand-coral: #EB5F6B;
+  --color-brand-blue: #BAE2E0;
+  --color-brand-cream: #F9F9F4;
+  /* ... tus demás variables */
 }
 
-/* Configuraciones Base */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--brand-cream);
-  color: var(--brand-plum);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* 10. ACCESIBILIDAD: Estilo de enfoque (Focus) */
-/* Esto asegura que los usuarios que navegan con tabulador (sin mouse) 
-   siempre sepan dónde están parados */
-*:focus-visible {
-  outline: 3px solid var(--brand-coral);
-  outline-offset: 4px;
-}
-
-/* 5. ELEVATED CARDS: Estilos específicos para las tarjetas */
-.project-card {
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* 9. DISPOSITIVOS MÓVILES: Ajuste de scroll para el modal */
-body.modal-open {
-  overflow: hidden;
-}
-
-/* Personalización del Scrollbar para que combine con tu marca */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--brand-cream);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--brand-plum);
-  border-radius: 10px;
-  border: 2px solid var(--brand-cream);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-coral);
-}
-
-/* Estilos para el contenido renderizado desde el objeto de datos */
-.prose-custom strong {
-  color: var(--brand-coral);
-  font-weight: 800;
-}
-
-/* Estilo para las imágenes de la galería en el modal */
-.gallery-img {
-  @apply transition-opacity duration-300 hover:opacity-90 cursor-zoom-in;
+@layer base {
+  body {
+    @apply bg-brand-cream text-brand-plum antialiased;
+  }
 }

@@ -177,9 +177,9 @@ const App = () => {
                   </div>
 
                   <div className="space-y-8">
-                    <section className="bg-brand-blue/30 p-8 rounded-[2rem] border border-brand-blue">
-                      <h4 className="font-black text-brand-plum uppercase text-xs tracking-widest mb-3">Conclusión</h4>
-                      <p className="text-brand-plum italic leading-relaxed">{selectedProject.details.conclusion}</p>
+                    <section className="bg-brand-blue/30 p-8 rounded-4xl border border-brand-blue">
+                    <h4 className="font-black text-brand-plum uppercase text-xs tracking-widest mb-3">Conclusión</h4>
+                    <p className="text-brand-plum italic leading-relaxed">{selectedProject.details.conclusion}</p>
                     </section>
                     
                     <div className="flex flex-col sm:flex-row gap-4">
