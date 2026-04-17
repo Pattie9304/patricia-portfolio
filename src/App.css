@@ -1,42 +1,74 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Importación de las capas base de Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Definimos tus colores como variables para fácil mantenimiento */
+  --brand-plum: #4A3751;
+  --brand-coral: #EB5F6B;
+  --brand-blue: #BAE2E0;
+  --brand-cream: #F9F9F4;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Configuraciones Base */
+html {
+  scroll-behavior: smooth;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--brand-cream);
+  color: var(--brand-plum);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* 10. ACCESIBILIDAD: Estilo de enfoque (Focus) */
+/* Esto asegura que los usuarios que navegan con tabulador (sin mouse) 
+   siempre sepan dónde están parados */
+*:focus-visible {
+  outline: 3px solid var(--brand-coral);
+  outline-offset: 4px;
 }
 
-.card {
-  padding: 2em;
+/* 5. ELEVATED CARDS: Estilos específicos para las tarjetas */
+.project-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.read-the-docs {
-  color: #888;
+/* 9. DISPOSITIVOS MÓVILES: Ajuste de scroll para el modal */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Personalización del Scrollbar para que combine con tu marca */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brand-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-plum);
+  border-radius: 10px;
+  border: 2px solid var(--brand-cream);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-coral);
+}
+
+/* Estilos para el contenido renderizado desde el objeto de datos */
+.prose-custom strong {
+  color: var(--brand-coral);
+  font-weight: 800;
+}
+
+/* Estilo para las imágenes de la galería en el modal */
+.gallery-img {
+  @apply transition-opacity duration-300 hover:opacity-90 cursor-zoom-in;
 }

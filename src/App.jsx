@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Download, Code, Layout, Users, Zap } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Github, Linkedin, Mail, ExternalLink, Download, X, PlayCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from './data/projects';
 import patriciaImg from './assets/PatriciaHiguera.png';
@@ -18,310 +18,224 @@ const FadeIn = ({ children, delay = 0 }) => (
 
 const App = () => {
   const [filter, setFilter] = useState('Todos');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const modalRef = useRef(null);
 
   const filteredProjects = projects.filter(p => 
     filter === 'Todos' || p.category === filter
   );
 
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') setSelectedProject(null);
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
+
   return (
-    <div className="bg-slate-50 text-slate-900 font-sans">
+    <div className="bg-brand-cream text-brand-plum font-sans selection:bg-brand-coral selection:text-white">
+      
       {/* 1. HERO SECTION */}
       <header className="min-h-screen flex flex-col justify-center items-center text-center p-6 bg-white">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl"
-        >
-          <h1 className="text-6xl font-bold mb-2 text-brand-main">Patricia Higuera</h1>
-          <h2 className="text-2xl text-brand-accent font-semibold mb-4">Front-End Engineer & Design Lead</h2>
-          <p className="text-xl text-brand-accent mb-8 italic">
-            "Construyendo interfaces accesibles y código robusto con un toque de color".
-          </p>
-          <div className="flex gap-4 justify-center">
-            <a href="#proyectos" className="bg-brand-main text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
+          <h1 className="text-6xl md:text-8xl font-black mb-4 text-brand-plum tracking-tighter">Patricia Higuera</h1>
+          <h2 className="text-xl md:text-2xl text-brand-coral font-bold mb-8 tracking-widest uppercase">Front-End Engineer & Design Lead</h2>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a href="#proyectos" className="bg-brand-plum text-brand-cream px-10 py-4 rounded-full font-bold hover:scale-105 transition-all shadow-elevated active:scale-95">
               Ver Proyectos
             </a>
-            <a
-            href={myCV}
-            download="Patricia_Higuera_CV.pdf"
-            className="border-2 border-brand-main text-brand-main px-8 py-3 rounded-full font-bold hover:bg-brand-main hover:text-white transition flex items-center gap-2"
-            >
+            <a href={myCV} download className="border-2 border-brand-plum text-brand-plum px-10 py-4 rounded-full font-bold hover:bg-brand-plum hover:text-brand-cream transition-all flex items-center gap-2">
               <Download size={20} /> Descargar CV
-              </a>
-            </div>
+            </a>
+          </div>
         </motion.div>
       </header>
 
       {/* 2. ACERCA DE */}
-      <section id="sobre-mi" className="py-24 px-6 max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          
-          {/* Columna de Imagen */}
+      <section id="sobre-mi" className="py-24 px-6 bg-brand-blue">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <div className="relative group">
-              {/* Marcos decorativos con tus colores */}
-              <div className="absolute -inset-4 border-2 border-brand-accent rounded-2xl -rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
-              <div className="absolute -inset-4 bg-brand-main/10 rounded-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500 -z-10"></div>
-              
-              <div className="relative overflow-hidden rounded-xl bg-brand-main">
-                <img 
-                  src={patriciaImg} alt="Patricia Higuera" 
-                  className="w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-700 ease-in-out transform hover:scale-105"
-                />
+              <div className="absolute -inset-4 border-4 border-brand-coral rounded-2xl -rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
+              <div className="relative overflow-hidden rounded-xl bg-brand-plum shadow-elevated">
+                <img src={patriciaImg} alt="Patricia" className="w-full grayscale hover:grayscale-0 transition duration-700 transform hover:scale-105" />
               </div>
             </div>
           </FadeIn>
-
-          {/* Columna de Texto */}
           <div className="flex flex-col gap-6">
-            <FadeIn delay={0.2}>
-              <h2 className="text-4xl font-black text-brand-main italic">
-                Detrás del código...
-              </h2>
-            </FadeIn>
+            <h2 className="text-5xl font-black text-brand-plum italic tracking-tight">Detrás del código...</h2>
+            <p className="text-xl leading-relaxed text-brand-plum/90">
+              Soy <span className="font-bold text-brand-plum">Front-End Engineer y Design Lead</span> con 8 años de experiencia. Me especializo en <span className="font-bold border-b-2 border-brand-coral">React y accesibilidad</span>, uniendo la visión de negocio con código impecable.
+            </p>
+            <div className="flex flex-wrap gap-3 mt-4">
+              {['JavaScript', 'React', 'Figma', 'Tailwind', 'Accessibility'].map(skill => (
+                <span key={skill} className="bg-brand-plum text-brand-cream px-5 py-2 rounded-lg text-sm font-bold shadow-sm">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <FadeIn delay={0.4}>
-              <div className="space-y-4 text-brand-main text-lg leading-relaxed">
-                <p>
-                  Soy **Front-End Engineer y Design Lead** con 8 años de trayectoria creando soluciones web escalables en entornos globales como Amex GBT.
-                </p>
-                <p>
-                  Me especializo en **React, accesibilidad** y en unir la visión de negocio con código impecable. Mi enfoque es crear interfaces que no solo se vean bien, sino que funcionen para todos.
-                </p>
-                <p className="text-brand-accent font-medium italic">
-                  Fuera del modo dark, soy quien probablemente traiga los calcetines más coloridos a la oficina y el chiste preciso para que el equipo trabaje con la mejor energía. 🧦
-                </p>
-              </div>
-            </FadeIn>
+      {/* 3. PROYECTOS */}
+      <section id="proyectos" className="py-24 px-6 bg-brand-coral">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black text-brand-cream mb-8 italic tracking-tighter">Proyectos Seleccionados</h2>
+            <div className="flex flex-wrap gap-3 justify-center">
+              {['Todos', 'Web Development / UI Design', 'UX Research / UI Design', 'UI Design / UX Strategy'].map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setFilter(cat)}
+                  className={`px-6 py-3 rounded-full border-2 font-bold transition-all shadow-sm ${
+                    filter === cat ? 'bg-brand-plum text-brand-cream border-brand-plum' : 'border-brand-plum text-brand-plum hover:bg-white/20'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
 
-            {/* Skills Visuales */}
-            <FadeIn delay={0.6}>
-              <div className="mt-8">
-                <h4 className="text-xs font-black uppercase tracking-widest text-brand-accent mb-6">
-                  Stack Tecnológico & Herramientas
-                </h4>
-                <div className="flex flex-wrap gap-6 items-center grayscale opacity-70 hover:opacity-100 transition-opacity">
-                  {/* Aquí puedes usar iconos de Lucide o simplemente etiquetas estilizadas */}
-                  {['JavaScript', 'React', 'Figma', 'Node.js', 'Tailwind', 'Git'].map((skill) => (
-                    <span 
-                      key={skill} 
-                      className="text-sm font-bold border-b-2 border-brand-accent/30 py-1 hover:border-brand-accent transition-colors"
-                    >
-                      {skill}
-                    </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <AnimatePresence mode='popLayout'>
+              {filteredProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  onClick={() => setSelectedProject(project)}
+                  className="bg-white rounded-3xl overflow-hidden shadow-elevated cursor-pointer hover:-translate-y-3 transition-all group border border-black/5"
+                  role="button"
+                  tabIndex="0"
+                >
+                  <div className="h-56 overflow-hidden relative">
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-brand-plum/10 group-hover:bg-transparent transition-colors"></div>
+                  </div>
+                  <div className="p-8">
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-coral">{project.category}</span>
+                    <h3 className="text-2xl font-bold text-brand-plum mt-1 mb-3">{project.title}</h3>
+                    <p className="text-sm text-slate-600 line-clamp-2 mb-6 leading-relaxed">{project.shortDescription || project.description}</p>
+                    <div className="flex items-center text-brand-plum font-black text-xs uppercase tracking-widest group-hover:text-brand-coral transition-colors">
+                      Explorar Caso <ExternalLink size={14} className="ml-2" />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. MODAL DETALLE */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div 
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-plum/95 backdrop-blur-md"
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div 
+              initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 100, opacity: 0 }}
+              className="bg-brand-cream w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] shadow-2xl relative"
+              onClick={(e) => e.stopPropagation()}
+              ref={modalRef}
+            >
+              <button 
+                onClick={() => setSelectedProject(null)}
+                className="fixed md:absolute top-6 right-6 p-3 bg-brand-coral text-white rounded-full hover:rotate-90 transition-transform z-50 shadow-lg"
+              >
+                <X size={24} />
+              </button>
+
+              <div className="p-8 md:p-16">
+                <span className="text-xs font-black text-brand-coral uppercase tracking-widest">{selectedProject.category}</span>
+                <h2 className="text-5xl font-black text-brand-plum mt-2 mb-8 tracking-tight">{selectedProject.title}</h2>
+                
+                <div className="grid md:grid-cols-2 gap-12 mb-12">
+                  <div className="space-y-8">
+                    <section>
+                      <h4 className="font-black text-brand-coral uppercase text-xs tracking-widest mb-3">Análisis del Reto</h4>
+                      <p className="text-brand-plum text-lg leading-relaxed">{selectedProject.details.analysis}</p>
+                    </section>
+                    
+                    <section>
+                      <h4 className="font-black text-brand-coral uppercase text-xs tracking-widest mb-3">El Proceso</h4>
+                      <ul className="grid gap-3">
+                        {selectedProject.details.process.map((step, i) => (
+                          <li key={i} className="flex items-start gap-3 text-brand-plum">
+                            <span className="text-brand-coral font-bold mt-1">✦</span> {step}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  </div>
+
+                  <div className="space-y-8">
+                    <section className="bg-brand-blue/30 p-8 rounded-[2rem] border border-brand-blue">
+                      <h4 className="font-black text-brand-plum uppercase text-xs tracking-widest mb-3">Conclusión</h4>
+                      <p className="text-brand-plum italic leading-relaxed">{selectedProject.details.conclusion}</p>
+                    </section>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      {selectedProject.links.demo !== "#" && (
+                        <a href={selectedProject.links.demo} target="_blank" className="flex-1 bg-brand-plum text-white text-center py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-brand-coral transition-colors">
+                          <ExternalLink size={18} /> Demo Live
+                        </a>
+                      )}
+                      {selectedProject.links.code !== "#" && (
+                        <a href={selectedProject.links.code} target="_blank" className="flex-1 border-2 border-brand-plum text-brand-plum text-center py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-brand-plum hover:text-white transition-all">
+                          <Github size={18} /> Ver Código
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Galería con soporte de Video */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+                  {selectedProject.gallery?.map((item, index) => (
+                    <div key={index} className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                      {item.type === "video" ? (
+                        <video controls className="w-full h-full object-cover aspect-video">
+                          <source src={item.src} type="video/mp4" />
+                          Tu navegador no soporta videos.
+                        </video>
+                      ) : (
+                        <img src={item.src} alt={item.alt} className="w-full h-72 object-cover hover:scale-105 transition-transform duration-500" />
+                      )}
+                    </div>
                   ))}
                 </div>
               </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. PROYECTOS CON FILTROS */}
-      <section id="proyectos" className="py-20 px-6 max-w-7xl mx-auto">
-        <FadeIn>
-        {/* Filtros con tu paleta */}
-        <div className="flex flex-wrap gap-4 justify-center mb-16">
-          {['Todos', 'React/JS', 'UX/UI', 'Accesibilidad'].map(cat => (
-            <button
-            key={cat}
-            onClick={() => setFilter(cat)}
-            className={`px-6 py-2 rounded-full border-2 transition-all font-bold ${
-              filter === cat 
-              ? 'bg-brand-main text-page-bg border-brand-main' 
-              : 'bg-transparent text-brand-accent border-brand-accent hover:bg-brand-accent hover:text-white'
-            }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-        </FadeIn>
-
-        {/* Grilla de Proyectos */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <AnimatePresence mode='popLayout'>
-            {filteredProjects.map((project) => (
-              <motion.div
-              key={project.id}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-white rounded-3xl overflow-hidden shadow-lg border border-white/20 flex flex-col h-full"
-              >
-                {/* Contenedor de Imagen */}
-                <div className="relative group overflow-hidden h-52">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-brand-main/20 group-hover:bg-transparent transition-colors"></div>
-                </div>
-                
-                <div className="p-8 flex flex-col flex-grow">
-                  {/* Categoría en Coral */}
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-brand-accent mb-2">
-                    {project.category}
-                  </span>
-                  
-                  {/* Título en Ciruela */}
-                  <h3 className="text-2xl font-bold mb-3 text-brand-main leading-tight">
-                    {project.title}
-                  </h3>
-                  
-                  {/* Descripción técnica corta */}
-                  <p className="text-brand-accent/90 text-sm leading-relaxed mb-6">
-                  {project.longDesc}
-                  </p>
-                  
-                  {/* Tags de Tecnología */}
-                  <div className="flex flex-wrap gap-2 mb-8 mt-auto">
-                    {project.tech.map(t => (
-                      <span key={t} className="bg-brand-main/5 text-brand-main border border-brand-main/10 px-3 py-1 rounded-lg text-xs font-bold">
-                        {t}
-                      </span>
-                      ))}
-                  </div>
-                  
-                  {/* Enlaces con iconos */}
-                  <div className="flex justify-between items-center border-t border-brand-main/10 pt-5 mt-auto">
-                  {/* Botón DEMO / BEHANCE: Solo se muestra si 'demo' tiene contenido y no es '#' */}
-                  {project.links.demo && project.links.demo !== "#" && (
-                    <a
-                    href={project.links.demo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 text-brand-main font-black text-xs hover:text-brand-accent transition-colors"
-                    >
-                      <ExternalLink size={16} />
-                      {project.category === "UX/UI" ? "VER DISEÑO" : "DEMO LIVE"}
-                      </a>
-                      )}
-                      
-                      {/* Botón CÓDIGO: Solo se muestra si 'code' tiene contenido y no es '#' */}
-                      {project.links.code && project.links.code !== "#" && (
-                        <a
-                        href={project.links.code}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center gap-2 text-brand-accent font-black text-xs hover:opacity-70 transition-opacity"
-                        >
-                          <Github size={16} /> CÓDIGO
-                          </a>
-                          )}
-                          </div>
-                        </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </section>
-      
-      {/* 4. MI PROCESO */}
-      <section id="proceso" className="py-24 bg-brand-main text-white px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <FadeIn>
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-black italic mb-4">
-                ¿Cómo lo hago?
-              </h2>
-              <div className="h-1 w-24 bg-brand-accent mx-auto rounded-full"></div>
-              <p className="mt-6 text-page-bg/80 max-w-xl mx-auto text-lg">
-                No solo escribo código; diseño soluciones escalables pensando en el usuario y el negocio.
-              </p>
-            </div>
-          </FadeIn>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
-            {/* Línea decorativa conectora (solo visible en desktop) */}
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-brand-accent/20 -translate-y-12"></div>
-            {[
-              {
-                num: "01",
-                icon: <Users size={32} />,
-                title: "Descubrimiento",
-                desc: "Análisis de requisitos y necesidades empresariales. Entender el 'por qué' antes del 'cómo'."
-              },
-              {
-                num: "02",
-                icon: <Layout size={32} />,
-                title: "Arquitectura & UX",
-                desc: "Wireframing y accesibilidad desde el día uno. Estructuras sólidas para interfaces fluidas."
-              },
-              {
-                num: "03",
-                icon: <Code size={32} />,
-                title: "Desarrollo",
-                desc: "React, BEM y código limpio. Soluciones escalables con un rendimiento optimizado."
-              },
-              {
-                num: "04",
-                icon: <Zap size={32} />,
-                title: "Iteración",
-                desc: "Pruebas, QA y refinamiento constante. El código nunca deja de evolucionar."
-              }
-            ].map((step, idx) => (
-              <FadeIn key={idx} delay={idx * 0.2}>
-                <div className="relative z-10 flex flex-col items-center text-center group">
-                  {/* Círculo con Icono */}
-                  <div className="w-20 h-20 bg-brand-accent rounded-2xl flex items-center justify-center mb-6 transform transition-transform group-hover:rotate-12 group-hover:scale-110 shadow-xl">
-                    <div className="text-brand-main">
-                      {step.icon}
-                    </div>
-                  </div>
-                  
-                  {/* Número Flotante */}
-                  <span className="text-5xl font-black text-white/10 absolute -top-4 left-1/2 -translate-x-1/2 group-hover:text-brand-accent/20 transition-colors">
-                      {step.num}
-                  </span>
-                  
-                  <h4 className="text-xl font-bold mb-3 text-page-bg uppercase tracking-tight">
-                    {step.title}
-                  </h4>
-                  <p className="text-sm text-page-bg/70 leading-relaxed px-4">
-                    {step.desc}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* FOOTER */}
-      <footer className="py-16 bg-white border-t border-brand-accent/20 text-center">
-      <div className="flex justify-center gap-8 mb-10">
-        <a href="www.linkedin.com/in/patriciahigueradesigner" target="_blank" rel="noreferrer" 
-        className="text-brand-main hover:text-brand-accent transition-colors scale-125">
-          <Linkedin size={28}/>
-        </a>
-        <a href="https://github.com/Pattie9304" target="_blank" rel="noreferrer"
-        className="text-brand-main hover:text-brand-accent transition-colors scale-125">
-          <Github size={28}/>
-        </a>
-        <a href="mailto:patricia.higuera@outlook.com" 
-        className="text-brand-main hover:text-brand-accent transition-colors scale-125">
-          <Mail size={28}/>
-        </a>
-      </div>
-      
-      <div className="max-w-2xl mx-auto px-6">
-        <p className="text-2xl font-medium mb-4 text-brand-main italic leading-relaxed">
-          "¿Lista para llevar tu proyecto al siguiente nivel <br/>
-          (o para escuchar un buen chiste)? Hablemos."
-        </p>
-        
-        {/* El detalle de los calcetines coloridos */}
-        <motion.div
-        whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.2 }}
-        className="inline-block cursor-help text-4xl mt-4"
-        title="¡Sí, traigo calcetines de colores hoy!"
-        >
-          🧦
-        </motion.div>
-        
-        <p className="text-xs text-brand-accent mt-8 font-bold tracking-widest uppercase opacity-50">
-          Hecho con React & mucho color • 2026
-        </p>
-      </div>
-    </footer>
+      <footer className="py-24 bg-brand-plum text-brand-cream text-center relative overflow-hidden">
+        <div className="relative z-10">
+          <div className="flex justify-center gap-10 mb-10">
+            <a href="#" className="hover:text-brand-coral transition-transform hover:-translate-y-2"><Linkedin size={36}/></a>
+            <a href="#" className="hover:text-brand-coral transition-transform hover:-translate-y-2"><Github size={36}/></a>
+            <a href="#" className="hover:text-brand-coral transition-transform hover:-translate-y-2"><Mail size={36}/></a>
+          </div>
+          <p className="text-2xl font-light italic opacity-80 px-6 max-w-2xl mx-auto">
+            "Construyendo el futuro digital con accesibilidad, diseño y mucho café."
+          </p>
+          <div className="text-5xl mt-8 animate-bounce">🧦</div>
+        </div>
+        {/* Decoración sutil de fondo */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none flex items-center justify-center">
+            <span className="text-[20rem] font-black uppercase">PH</span>
+        </div>
+      </footer>
     </div>
   );
 };
