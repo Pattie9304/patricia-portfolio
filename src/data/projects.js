@@ -428,11 +428,6 @@ export const projects = [
         type: "image", 
         src: jetDevs__flightsMobile, 
         alt: "Vista responsiva en dispositivos móviles" 
-      },
-      { 
-        type: "video", 
-        src: "https://www.youtube.com/embed/ca24-Hx-sOc?si=XNN4mESqw0CTKojX", // O la variable importada
-        alt: "Recorrido por la experiencia interactiva del libro de onboarding" 
       }
     ]
   }
