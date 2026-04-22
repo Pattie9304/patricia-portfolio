@@ -36,8 +36,8 @@ const App = () => {
   return (
     <div className="bg-brand-cream text-brand-plum font-sans selection:bg-brand-coral selection:text-white">
       
-      {/* 1. HERO SECTION */}
-      <header className="min-h-screen flex flex-col justify-center items-center text-center p-6 bg-white">
+      {/* 1. HERO SECTION - Ajustada para permitir ver la siguiente sección */}
+      <header className="py-24 md:py-32 flex flex-col justify-center items-center text-center p-6 bg-white">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
           <h1 className="text-6xl md:text-8xl font-black mb-4 text-brand-plum tracking-tighter">Patricia Higuera</h1>
           <h2 className="text-xl md:text-2xl text-brand-coral font-bold mb-8 tracking-widest uppercase">Front-End Engineer & Design Lead</h2>
@@ -78,27 +78,39 @@ const App = () => {
           </div>
         </div>
       </section>
-
-      {/* 3. PROYECTOS */}
+      
+      {/* 3. PROYECTOS (Accesibilidad Mejorada) */}
       <section id="proyectos" className="py-24 px-6 bg-brand-coral">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black text-brand-cream mb-8 italic tracking-tighter">Proyectos Seleccionados</h2>
-            <div className="flex flex-wrap gap-3 justify-center">
-              {['Todos', 'Web Development / UI Design', 'UX Research / UI Design', 'UI Design / UX Strategy'].map(cat => (
+            {/* Título en Crema para contraste máximo sobre Coral */}
+            <h2 className="text-5xl md:text-6xl font-black text-brand-cream mb-8 italic tracking-tighter">
+              Proyectos Seleccionados
+            </h2>
+            
+            {/* Contenedor de Filtros */}
+            {/* Filtros Inteligentes y Accesibles */}
+            <div className="flex flex-wrap gap-3 justify-center" role="tablist">
+              {/* Generamos los botones basados en las categorías reales de tus datos */}
+              {['Todos', ...new Set(projects.map(p => p.category))].map(cat => (
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
-                  className={`px-6 py-3 rounded-full border-2 font-bold transition-all shadow-sm ${
-                    filter === cat ? 'bg-brand-plum text-brand-cream border-brand-plum' : 'border-brand-plum text-brand-plum hover:bg-white/20'
+                  className={`px-6 py-3 rounded-full border-2 font-bold transition-all shadow-md ${
+                    filter === cat 
+                      ? 'bg-brand-plum text-brand-cream border-brand-plum' 
+                      : 'border-brand-cream text-brand-cream hover:bg-white/20'
                   }`}
+                  aria-pressed={filter === cat}
                 >
                   {cat}
                 </button>
               ))}
             </div>
+
           </div>
 
+          {/* Grilla de Tarjetas */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <AnimatePresence mode='popLayout'>
               {filteredProjects.map((project) => (
@@ -109,19 +121,23 @@ const App = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   onClick={() => setSelectedProject(project)}
-                  className="bg-white rounded-3xl overflow-hidden shadow-elevated cursor-pointer hover:-translate-y-3 transition-all group border border-black/5"
+                  // Tarjetas blancas con texto Ciruela (Contraste perfecto)
+                  className="bg-white rounded-3xl overflow-hidden shadow-elevated cursor-pointer hover:-translate-y-3 transition-all group border-b-8 border-brand-plum"
                   role="button"
                   tabIndex="0"
+                  aria-label={`Ver detalles del proyecto: ${project.title}`}
+                  onKeyDown={(e) => e.key === 'Enter' && setSelectedProject(project)}
                 >
                   <div className="h-56 overflow-hidden relative">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-brand-plum/10 group-hover:bg-transparent transition-colors"></div>
+                    <img src={project.image} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-brand-plum/5 group-hover:bg-transparent transition-colors"></div>
                   </div>
                   <div className="p-8">
+                    {/* El Coral sobre Blanco sí pasa la prueba de contraste para textos cortos/etiquetas */}
                     <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-coral">{project.category}</span>
                     <h3 className="text-2xl font-bold text-brand-plum mt-1 mb-3">{project.title}</h3>
-                    <p className="text-sm text-slate-600 line-clamp-2 mb-6 leading-relaxed">{project.shortDescription || project.description}</p>
-                    <div className="flex items-center text-brand-plum font-black text-xs uppercase tracking-widest group-hover:text-brand-coral transition-colors">
+                    <p className="text-sm text-slate-700 line-clamp-2 mb-6 leading-relaxed">{project.shortDescription || project.description}</p>
+                    <div className="flex items-center text-brand-plum font-black text-xs uppercase tracking-widest border-b-2 border-transparent group-hover:border-brand-coral transition-all">
                       Explorar Caso <ExternalLink size={14} className="ml-2" />
                     </div>
                   </div>
@@ -183,14 +199,40 @@ const App = () => {
                     </section>
                     
                     <div className="flex flex-col sm:flex-row gap-4">
-                      {selectedProject.links.demo !== "#" && (
-                        <a href={selectedProject.links.demo} target="_blank" className="flex-1 bg-brand-plum text-white text-center py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-brand-coral transition-colors">
+                      {/* BOTÓN DEMO: Se muestra si existe y no es # */}
+                      {selectedProject.links?.demo && selectedProject.links.demo !== "#" && (
+                        <a 
+                        href={selectedProject.links.demo} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex-1 bg-brand-plum text-white text-center py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-brand-coral transition-colors"
+                        >
                           <ExternalLink size={18} /> Demo Live
                         </a>
                       )}
-                      {selectedProject.links.code !== "#" && (
-                        <a href={selectedProject.links.code} target="_blank" className="flex-1 border-2 border-brand-plum text-brand-plum text-center py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-brand-plum hover:text-white transition-all">
+                      
+                      {/* BOTÓN CÓDIGO (GITHUB): Se muestra si existe y no es # */}
+                      {selectedProject.links?.code && selectedProject.links.code !== "#" && (
+                        <a 
+                        href={selectedProject.links.code} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex-1 border-2 border-brand-plum text-brand-plum text-center py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-brand-plum hover:text-white transition-all"
+                        >
                           <Github size={18} /> Ver Código
+                        </a>
+                      )}
+                      
+                      {/* BOTÓN BEHANCE: Se muestra si existe y no es # */}
+                      {selectedProject.links?.behance && selectedProject.links.behance !== "#" && (
+                        <a 
+                        href={selectedProject.links.behance} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex-1 bg-[#1769ff] text-white text-center py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-[#003fba] transition-colors"
+                        >
+                        {/* Si no tienes el icono de Behance en Lucide, puedes usar una letra B o un Icono genérico */}
+                        <ExternalLink size={18} /> Ver Behance
                         </a>
                       )}
                     </div>
@@ -198,17 +240,24 @@ const App = () => {
                 </div>
 
                 {/* Galería con soporte de Video */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+                <div className={`grid grid-cols-1 ${selectedProject.gallery?.length > 4 ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-6 mt-12`}>
                   {selectedProject.gallery?.map((item, index) => (
-                    <div key={index} className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                    <div key={index} className="rounded-2xl overflow-hidden shadow-md bg-white border border-brand-plum/10 aspect-video flex items-center justify-center">
                       {item.type === "video" ? (
-                        <video controls className="w-full h-full object-cover aspect-video">
-                          <source src={item.src} type="video/mp4" />
-                          Tu navegador no soporta videos.
-                        </video>
-                      ) : (
-                        <img src={item.src} alt={item.alt} className="w-full h-72 object-cover hover:scale-105 transition-transform duration-500" />
-                      )}
+                        <iframe
+                        src={item.src}
+                        title={item.alt}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        ></iframe>
+                        ) : (
+                          <img
+                          src={item.src}
+                          alt={item.alt}
+                          className="w-full h-full object-contain p-2" // 'object-contain' evita que se corten los bordes del frame
+                          />
+                          )}
                     </div>
                   ))}
                 </div>
