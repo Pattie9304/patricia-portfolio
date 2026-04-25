@@ -60,14 +60,14 @@ export const projects = [
     },
     tech: ["React", "CSS Modules", "WCAG 2.1", "ADA Compliance"],
     links: { 
-      demo: "https://youtu.be/rZycU5tuV0c", 
+      demo: "https://youtu.be/rZycU5tuV0c?rel=0&modestbranding=1", 
       behance: "#" 
     },
     image: buttonGenerator__thumbnailImg,
     gallery: [
       { 
         type: "video", 
-        src: "https://www.youtube.com/embed/rZycU5tuV0c?si=8N5T6xZJnsaxBbR9", // O la variable importada
+        src: "https://www.youtube.com/embed/rZycU5tuV0c?si=8N5T6xZJnsaxBbR9?rel=0&modestbranding=1", // O la variable importada
         alt: "Demostración funcional del generador de botones desde YouTube" 
       },
       { 
@@ -96,14 +96,14 @@ export const projects = [
     },
     tech: ["Figma", "Canva", "Interaction Design", "Prototyping"],
     links: { 
-      demo: "https://www.youtube.com/embed/ca24-Hx-sOc?si=XNN4mESqw0CTKojX",
+      demo: "https://www.youtube.com/embed/ca24-Hx-sOc?si=XNN4mESqw0CTKojX?rel=0&modestbranding=1",
       behance: "#"
     },
     image: onboardingBook__prototypeThumb,
     gallery: [
       { 
         type: "video", 
-        src: "https://www.youtube.com/embed/ca24-Hx-sOc?si=XNN4mESqw0CTKojX", // O la variable importada
+        src: "https://www.youtube.com/embed/ca24-Hx-sOc?si=XNN4mESqw0CTKojX?rel=0&modestbranding=1", // O la variable importada
         alt: "Recorrido por la experiencia interactiva del libro de onboarding" 
       },
       { 

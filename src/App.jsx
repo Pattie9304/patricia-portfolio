@@ -36,19 +36,53 @@ const App = () => {
   return (
     <div className="bg-brand-cream text-brand-plum font-sans selection:bg-brand-coral selection:text-white">
       
-      {/* 1. HERO SECTION - Ajustada para permitir ver la siguiente sección */}
-      <header className="py-24 md:py-32 flex flex-col justify-center items-center text-center p-6 bg-white">
+      {/* 1. HERO SECTION */}
+      <header className="pt-16 pb-24 md:pt-24 md:pb-32 flex flex-col justify-center items-center text-center p-6 bg-white">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
+          
+          {/* Títulos Principales */}
           <h1 className="text-6xl md:text-8xl font-black mb-4 text-brand-plum tracking-tighter">Patricia Higuera</h1>
-          <h2 className="text-xl md:text-2xl text-brand-coral font-bold mb-8 tracking-widest uppercase">Front-End Engineer & Design Lead</h2>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href="#proyectos" className="bg-brand-plum text-brand-cream px-10 py-4 rounded-full font-bold hover:scale-105 transition-all shadow-elevated active:scale-95">
+          <h2 className="text-xl md:text-2xl text-brand-coral font-bold mb-10 tracking-widest uppercase">Front-End Engineer & Design Lead</h2>
+          
+          {/* Contenedor de Texto (Narrativa) */}
+          <div className="flex flex-col gap-6 mb-12">
+            <p className="text-2xl md:text-3xl leading-tight text-brand-plum italic">
+              "I don't just design interfaces; I <span className="font-bold not-italic">architect scalable systems.</span>"
+            </p>
+            <p className="text-xl leading-relaxed text-brand-plum/80 max-w-2xl mx-auto">
+              Transformo problemas de negocio complejos en productos digitales intuitivos, 
+              uniendo la <span className="font-bold text-brand-plum">estética visual</span> con la <span className="font-bold text-brand-plum">viabilidad técnica</span>.
+            </p>
+          </div>
+          
+          {/* Contenedor del Video */}
+          <div className="w-full max-w-3xl mx-auto mt-12 mb-4">
+            <div className="relative pt-[56.25%] overflow-hidden rounded-2xl shadow-2xl border-4 border-white">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/bxZnYaKDEtc?si=-r3V9yLS2vWfzPWO?rel=0&modestbranding=1"
+                title="Patricia Higuera | Design & Engineering Vision"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            
+            <p className="text-xs text-brand-plum/60 mt-4 uppercase tracking-widest font-bold">
+              Frontend Engineer & Design Lead: Descubre quién soy en 120 segundos.
+            </p>
+          </div>
+
+          {/* Contenedor de Botones (Acciones) - Separado para forzar el salto de línea */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="#proyectos" className="w-full sm:w-auto bg-brand-plum text-brand-cream px-10 py-4 rounded-full font-bold hover:scale-105 transition-all shadow-lg active:scale-95 text-center">
               Ver Proyectos
             </a>
-            <a href={myCV} download className="border-2 border-brand-plum text-brand-plum px-10 py-4 rounded-full font-bold hover:bg-brand-plum hover:text-brand-cream transition-all flex items-center gap-2">
-              <Download size={20} /> Descargar CV
+            <a href={myCV} download className="w-full sm:w-auto border-2 border-brand-plum text-brand-plum px-10 py-4 rounded-full font-bold hover:bg-brand-plum hover:text-brand-cream transition-all flex items-center justify-center gap-2">
+              <Download size={20} /> Descargar CV en Español
             </a>
           </div>
+
         </motion.div>
       </header>
 
@@ -63,22 +97,59 @@ const App = () => {
               </div>
             </div>
           </FadeIn>
+          
           <div className="flex flex-col gap-6">
-            <h2 className="text-5xl font-black text-brand-plum italic tracking-tight">Detrás del código...</h2>
-            <p className="text-xl leading-relaxed text-brand-plum/90">
-              Soy <span className="font-bold text-brand-plum">Front-End Engineer y Design Lead</span> con 8 años de experiencia. Me especializo en <span className="font-bold border-b-2 border-brand-coral">React y accesibilidad</span>, uniendo la visión de negocio con código impecable.
+            <h2 className="text-5xl font-black text-brand-plum italic tracking-tight">Engineering meets Design</h2>
+            
+            <p className="text-xl leading-relaxed text-brand-plum">
+              Con <span className="font-bold border-b-2 border-brand-coral/40">10 años de trayectoria híbrida</span>, me he especializado en cerrar la brecha entre la visión creativa y la implementación real. Mi enfoque como <span className="font-black text-brand-plum uppercase text-lg">UX Engineer</span> se centra en:
             </p>
-            <div className="flex flex-wrap gap-3 mt-4">
-              {['JavaScript', 'React', 'Figma', 'Tailwind', 'Accessibility'].map(skill => (
-                <span key={skill} className="bg-brand-plum text-brand-cream px-5 py-2 rounded-lg text-sm font-bold shadow-sm">
-                  {skill}
-                </span>
-              ))}
+            
+            {/* Listas con bullets en Plum (contraste alto) */}
+            <ul className="list-disc list-outside ml-6 space-y-4 text-lg text-brand-plum">
+              <li><span className="font-bold">Sistemas Escalables:</span> Diseño y desarrollo con metodologías como BEM y Atomic Design.</li>
+              <li><span className="font-bold">Accesibilidad (A11y):</span> Interfaces inclusivas bajo estándares WCAG.</li>
+              <li><span className="font-bold">Eficiencia Operativa:</span> Optimización de flujos y mitigación de fricciones.</li>
+            </ul>
+
+            {/* Stack con títulos accesibles */}
+            <div className="mt-10 pt-10 border-t border-brand-plum/20">
+              <div className="flex flex-col gap-8">
+                
+                {/* Fila 1 */}
+                <div className="space-y-4">
+                  <h4 className="text-xs font-black uppercase tracking-widest text-brand-plum opacity-70">
+                    Technical Specialization
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['React', 'JavaScript ES6+', 'Tailwind CSS', 'Git', 'CSS Architecture'].map((skill) => (
+                      <span key={skill} className="bg-brand-plum text-white px-4 py-2 rounded-lg text-xs font-bold shadow-sm">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Fila 2 - Usamos el rosa solo como un detalle visual pequeño o borde */}
+                <div className="space-y-4">
+                  <h4 className="text-xs font-black uppercase tracking-widest text-brand-plum opacity-70">
+                    Design & Strategy
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['Figma', 'UX Research', 'Design Systems', 'Accessibility (WCAG)', 'Mentoring'].map((skill) => (
+                      <span key={skill} className="border-2 border-brand-plum text-brand-plum px-4 py-2 rounded-lg text-xs font-bold">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* 3. PROYECTOS (Accesibilidad Mejorada) */}
       <section id="proyectos" className="py-24 px-6 bg-brand-coral">
         <div className="max-w-7xl mx-auto">
