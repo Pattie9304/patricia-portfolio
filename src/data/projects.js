@@ -186,7 +186,12 @@ export const projectsEN = [
       impactDeliverables: "High-performance interface with optimized rendering and API failure resilience, eliminating data visualization bottlenecks [3, 4]."
     },
     tech: ["React.js", "Vite", "RESTful API", "React Router"],
-    // Mantén las mismas variables de imagen (ej. jetDevs__thumbnail)
+    links: { demo: "https://pattie9304.github.io/flight-status-frontend/", code: "https://github.com/Pattie9304/flight-status-frontend" },
+    image: jetDevs__thumbnail,
+    gallery: [
+      { type: "image", src: jetDevs__homeDesktop, alt: "Dashboard View" },
+      { type: "image", src: jetDevs__flightsDesktop, alt: "Flight List Logic" }
+    ]
   },
   {
     id: 2,
@@ -199,6 +204,9 @@ export const projectsEN = [
       impactDeliverables: "Deployed a CI/CD-ready platform ensuring data integrity and strict adherence to user privacy standards [5, 7]."
     },
     tech: ["Node.js", "Express.js", "MongoDB", "React", "REST API"],
+        links: { demo: "https://github.com/Pattie9304/web_project_around_auth", code: "https://github.com/Pattie9304/web_project_around_auth" },
+    image: jetDevs__aboutDesktop, 
+    gallery: [{ type: "image", src: jetDevs__aboutDesktop, alt: "Social Network Interface" }]
   },
   {
     id: 3,
