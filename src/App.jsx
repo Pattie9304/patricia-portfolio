@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Download, X, Globe, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { projects } from './data/projects'; 
+import { projects as projectsES, projectsEN } from './data/projects'; 
 import patriciaImg from './assets/PatriciaHiguera.png';
 import myCV_ES from './assets/Patricia_Higuera_CV_ES.pdf';
 import myCV_EN from './assets/Patricia_Higuera_CV_EN.pdf';
@@ -47,7 +47,11 @@ const App = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const t = translations[lang];
 
-  const filteredProjects = projects.filter(p => 
+  // Selección dinámica de la fuente de datos basada en el idioma
+  const projectData = lang === 'es' ? projectsES : projectsEN;
+
+  // Filtrado de proyectos usando la fuente seleccionada
+  const filteredProjects = projectData.filter(p => 
     filter === 'Todos' || filter === 'All' || p.category === filter
   );
 
