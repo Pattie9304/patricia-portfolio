@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Download, X, Globe, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { projects as projectsES, projectsEN } from './data/projects'; 
+// Se importan ambas fuentes de datos: español e inglés
+import { projects as projectsES, projectsEN } from './data/projects';
 import patriciaImg from './assets/PatriciaHiguera.png';
 import myCV_ES from './assets/Patricia_Higuera_CV_ES.pdf';
 import myCV_EN from './assets/Patricia_Higuera_CV_EN.pdf';
@@ -47,20 +48,19 @@ const App = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const t = translations[lang];
 
-  // Selección dinámica de la fuente de datos basada en el idioma
+  // Selección dinámica de la fuente de datos de proyectos según el idioma
   const projectData = lang === 'es' ? projectsES : projectsEN;
 
-  // Filtrado de proyectos usando la fuente seleccionada
-  const filteredProjects = projectData.filter(p => 
+  const filteredProjects = projectData.filter(p =>
     filter === 'Todos' || filter === 'All' || p.category === filter
   );
 
   return (
     <div className="bg-brand-cream text-brand-plum font-sans selection:bg-brand-coral min-h-screen">
-      
-      {/* 1. Selector de Idioma (Corregido) */}
+
+      {/* Navegación y Selector de Idioma */}
       <nav className="fixed top-6 right-6 z-50">
-        <button 
+        <button
           onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
           className="bg-brand-plum text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-brand-coral transition-all shadow-lg font-bold"
         >
@@ -69,25 +69,25 @@ const App = () => {
         </button>
       </nav>
 
-      {/* 2. Hero Section (Limpia de citas) */}
+      {/* Hero Section */}
       <header className="container mx-auto px-6 pt-32 pb-12 text-center">
-        <motion.img 
-          src={patriciaImg} 
+        <motion.img
+          src={patriciaImg}
           className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-brand-coral shadow-lg"
           initial={{ scale: 0 }} animate={{ scale: 1 }}
         />
         <h1 className="text-4xl md:text-6xl font-black mb-4 tracking-tight">{t.heroTitle}</h1>
         <p className="max-w-2xl mx-auto text-lg mb-8 opacity-80 leading-relaxed">{t.heroDesc}</p>
-        <a 
-          href={lang === 'es' ? myCV_ES : myCV_EN} 
-          download 
+        <a
+          href={lang === 'es' ? myCV_ES : myCV_EN}
+          download
           className="inline-flex items-center gap-2 bg-brand-plum text-white px-8 py-3 rounded-lg hover:bg-brand-coral transition-all font-bold uppercase tracking-widest text-sm"
         >
-          <Download size={18} /> {t.btnCV} {lang === 'en' && "(IELTS C1)"}
+          <Download size={18} /> {t.btnCV} {lang === 'en' && "(IELTS C1 Certified)"}
         </a>
       </header>
 
-      {/* 3. Sección "Sobre Mí" (Incorporada del CV) */}
+      {/* Sección Sobre Mí (Basada en tu Perfil Profesional [1, 2]) */}
       <section className="bg-white/50 py-20 border-y border-brand-plum/5">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="grid md:grid-cols-3 gap-12 items-center">
@@ -101,12 +101,12 @@ const App = () => {
         </div>
       </section>
 
-      {/* 4. Grid de Proyectos */}
+      {/* Grid de Proyectos Seleccionados */}
       <section className="container mx-auto px-6 py-20">
         <h2 className="text-center text-3xl font-black mb-12 uppercase tracking-widest">{t.projectsTitle}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredProjects.map((project) => (
-            <motion.div 
+            <motion.div
               key={project.id}
               layout
               className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all cursor-pointer border border-brand-plum/5 group"
@@ -127,13 +127,13 @@ const App = () => {
         </div>
       </section>
 
-      {/* 5. Footer (Reincorporado) */}
+      {/* Footer con Redes Sociales [1] */}
       <footer className="bg-brand-plum text-brand-cream py-12 mt-20">
         <div className="container mx-auto px-6 text-center">
           <div className="flex justify-center gap-8 mb-8">
             <a href="https://github.com/Pattie9304" className="hover:text-brand-coral transition-colors"><Github /></a>
             <a href="https://linkedin.com/in/patriciahiguera" className="hover:text-brand-coral transition-colors"><Linkedin /></a>
-            <a href="mailto:tu-correo@ejemplo.com" className="hover:text-brand-coral transition-colors"><Mail /></a>
+            <a href="mailto:pattie9304@example.com" className="hover:text-brand-coral transition-colors"><Mail /></a>
           </div>
           <p className="text-sm opacity-60 font-medium tracking-wide">
             {t.footerText}
@@ -141,48 +141,50 @@ const App = () => {
         </div>
       </footer>
 
-      {/* Modal Senior (Lógica Bilingüe de Headers) */}
+      {/* Modal con Estructura Senior (problemStatement, technicalImplementation, impactDeliverables) */}
       <AnimatePresence>
         {selectedProject && (
-          <motion.div 
+          <motion.div
             className="fixed inset-0 z-50 bg-brand-plum/95 backdrop-blur-md flex items-center justify-center p-4"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setSelectedProject(null)}
           >
-            <motion.div 
-              className="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto"
+            <motion.div
+              className="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
               onClick={e => e.stopPropagation()}
               initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
             >
               <div className="p-8 md:p-12 space-y-10">
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start border-b pb-6">
                   <h2 className="text-4xl font-black text-brand-plum leading-tight">{selectedProject.title}</h2>
-                  <button onClick={() => setSelectedProject(null)} className="p-2 hover:bg-brand-coral hover:text-white rounded-full transition-colors"><X size={30} /></button>
+                  <button onClick={() => setSelectedProject(null)} className="p-2 hover:bg-brand-coral hover:text-white rounded-full transition-colors">
+                    <X size={30} />
+                  </button>
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-12">
                   <div className="space-y-8">
                     <section>
                       <h4 className="text-brand-coral font-black uppercase text-xs tracking-widest mb-3">{t.modalHeaders.problem}</h4>
-                      <p className="text-xl font-medium">{selectedProject.details.problemStatement}</p>
+                      <p className="text-xl font-medium leading-relaxed text-brand-plum">{selectedProject.details.problemStatement}</p>
                     </section>
                     <section>
                       <h4 className="text-brand-coral font-black uppercase text-xs tracking-widest mb-3">{t.modalHeaders.tech}</h4>
                       <p className="text-brand-plum/80 leading-relaxed italic">{selectedProject.details.technicalImplementation}</p>
                     </section>
-                    <div className="bg-brand-cream p-8 rounded-2xl border-l-8 border-brand-coral">
+                    <div className="bg-brand-cream p-8 rounded-2xl border-l-8 border-brand-coral shadow-inner">
                       <h4 className="text-brand-coral font-black uppercase text-xs tracking-widest mb-2">{t.modalHeaders.impact}</h4>
-                      <p className="font-bold text-lg">{selectedProject.details.impactDeliverables}</p>
+                      <p className="font-bold text-lg text-brand-plum">{selectedProject.details.impactDeliverables}</p>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4">
                     {selectedProject.gallery.map((item, i) => (
                       <div key={i} className="rounded-xl overflow-hidden border shadow-sm">
                         {item.type === 'video' ? (
-                          <iframe src={item.src} className="w-full aspect-video" allowFullScreen title={item.alt} />
+                          <iframe src={item.src} className="w-full aspect-video" allowFullScreen title={item.alt} frameBorder="0" />
                         ) : (
-                          <img src={item.src} alt={item.alt} className="w-full h-auto" />
+                          <img src={item.src} alt={item.alt} className="w-full h-auto hover:scale-105 transition-transform duration-500" />
                         )}
                       </div>
                     ))}
