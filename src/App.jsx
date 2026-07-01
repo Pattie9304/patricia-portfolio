@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Download, X, Globe } from 'lucide-center';
+import { Github, Linkedin, Mail, ExternalLink, Download, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from './data/projects'; // Importa tus 9 proyectos con BEM [2]
 import patriciaImg from './assets/PatriciaHiguera.png';
