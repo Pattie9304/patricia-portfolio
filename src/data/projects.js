@@ -34,9 +34,9 @@ export const projects = [
     category: "Full-Stack Development",
     description: "Plataforma en tiempo real para el seguimiento de estados de vuelo internacionales.",
     details: {
-      problemStatement: "Optimización de la latencia en la visualización de datos de aviación críticos para la toma de decisiones operativas [1].",
-      technicalImplementation: "Integración de AviationStack API mediante una arquitectura React/Vite con manejo de estados asíncronos y Mock Data Fallbacks [1, 2].",
-      impactDeliverables: "Interfaz de alto rendimiento con renderizado optimizado y resiliencia ante fallos de API externa [1]."
+      problemStatement: "Optimización de la latencia en la visualización de datos de aviación críticos para la toma de decisiones operativas.",
+      technicalImplementation: "Integración de AviationStack API mediante una arquitectura React/Vite con manejo de estados asíncronos y Mock Data Fallbacks.",
+      impactDeliverables: "Interfaz de alto rendimiento con renderizado optimizado y resiliencia ante fallos de API externa."
     },
     tech: ["React.js", "Vite", "AviationStack API", "RESTful API", "React Router"],
     links: { demo: "https://pattie9304.github.io/flight-status-frontend/", code: "https://github.com/Pattie9304/flight-status-frontend" },
@@ -52,9 +52,9 @@ export const projects = [
     category: "Full-Stack Development",
     description: "Aplicación Full-Stack con arquitectura RESTful y gestión segura de medios compartidos.",
     details: {
-      problemStatement: "Necesidad de una infraestructura robusta para la persistencia de datos de usuario y escalabilidad en el intercambio de contenido multimedia [3].",
-      technicalImplementation: "Desarrollo de Backend en Node.js/Express con MongoDB. Implementación de API RESTful con seguridad en la capa de datos [4-6].",
-      impactDeliverables: "Plataforma interactiva con despliegue CI/CD, garantizando integridad de datos y cumplimiento de estándares de privacidad [5, 6]."
+      problemStatement: "Necesidad de una infraestructura robusta para la persistencia de datos de usuario y escalabilidad en el intercambio de contenido multimedia.",
+      technicalImplementation: "Desarrollo de Backend en Node.js/Express con MongoDB. Implementación de API RESTful con seguridad en la capa de datos.",
+      impactDeliverables: "Plataforma interactiva con despliegue CI/CD, garantizando integridad de datos y cumplimiento de estándares de privacidad."
     },
     tech: ["Node.js", "Express.js", "MongoDB", "React", "REST API"],
     links: { demo: "https://github.com/Pattie9304/web_project_around_auth", code: "https://github.com/Pattie9304/web_project_around_auth" },
@@ -67,9 +67,9 @@ export const projects = [
     category: "Frontend & Accessibility Engineering",
     description: "Herramienta de eficiencia operativa para la generación de código accesible WCAG 2.1.",
     details: {
-      problemStatement: "Mitigación de riesgos legales por incumplimiento de normativas ADA y eliminación de cuellos de botella en la edición de contenido UI [7].",
-      technicalImplementation: "Lógica de contraste dinámico en React para cálculo de legibilidad en tiempo real y arquitectura de copiado limpio de CSS modular [7].",
-      impactDeliverables: "Reducción de 4-8 horas semanales en mantenimiento de UI y cumplimiento total de accesibilidad 'by design' [8]."
+      problemStatement: "Mitigación de riesgos legales por incumplimiento de normativas ADA y eliminación de cuellos de botella en la edición de contenido UI.",
+      technicalImplementation: "Lógica de contraste dinámico en React para cálculo de legibilidad en tiempo real y arquitectura de copiado limpio de CSS modular.",
+      impactDeliverables: "Reducción de 4-8 horas semanales en mantenimiento de UI y cumplimiento total de accesibilidad 'by design'."
     },
     tech: ["React", "CSS Modules", "WCAG 2.1", "ADA Compliance"],
     links: { demo: "https://youtu.be/rZycU5tuV0c", code: "https://github.com/Pattie9304" },
@@ -85,9 +85,9 @@ export const projects = [
     category: "Frontend & Accessibility Engineering",
     description: "MVP interactivo diseñado para optimizar la retención de información en procesos de integración corporativa.",
     details: {
-      problemStatement: "Sustitución de manuales estáticos ineficientes por una experiencia de aprendizaje dinámica que acelere el tiempo de rampa del empleado [9].",
-      technicalImplementation: "Definición de flujos de navegación complejos en Figma y prototipado rápido para validación de concepto (MVP) en 48 horas [9].",
-      impactDeliverables: "Establecimiento de estándares de prototipado animado para el equipo de diseño y aprobación inmediata de estrategia por la dirección (CPO) [10, 11]."
+      problemStatement: "Sustitución de manuales estáticos ineficientes por una experiencia de aprendizaje dinámica que acelere el tiempo de rampa del empleado.",
+      technicalImplementation: "Definición de flujos de navegación complejos en Figma y prototipado rápido para validación de concepto (MVP) en 48 horas.",
+      impactDeliverables: "Establecimiento de estándares de prototipado animado para el equipo de diseño y aprobación inmediata de estrategia por la dirección (CPO)."
     },
     tech: ["Figma", "Canva", "UX Strategy", "Prototyping"],
     links: { demo: "https://www.behance.net/gallery/199491891/Gaceta-UNAM-Wireframe", code: "#" },
@@ -103,9 +103,9 @@ export const projects = [
     category: "CRM & Email Marketing Engineering",
     description: "Ingeniería de newsletters de alta complejidad para marcas globales con enfoque en conversión.",
     details: {
-      problemStatement: "Fragmentación de la visualización de marca en clientes de correo críticos y baja tasa de interacción [12].",
-      technicalImplementation: "Maquetación modular con HTML5/CSS Inline y Salesforce. Implementación de sistemas de QA para renderizado consistente [12, 13].",
-      impactDeliverables: "Aumento en métricas de CTR y consolidación de gobernanza visual bajo estándares WCAG [12]."
+      problemStatement: "Fragmentación de la visualización de marca en clientes de correo críticos y baja tasa de interacción.",
+      technicalImplementation: "Maquetación modular con HTML5/CSS Inline y Salesforce. Implementación de sistemas de QA para renderizado consistente.",
+      impactDeliverables: "Aumento en métricas de CTR y consolidación de gobernanza visual bajo estándares WCAG."
     },
     tech: ["HTML5", "Salesforce", "Email Architecture", "QA Testing"],
     links: { demo: "https://www.behance.net/gallery/199490947/Mdico-conSentido-Email-Redesign", code: "#" },
@@ -118,9 +118,9 @@ export const projects = [
     category: "Frontend & Accessibility Engineering",
     description: "Desarrollo de canal de venta digital con arquitectura de datos dinámica.",
     details: {
-      problemStatement: "Transformación de una marca física en un ecosistema eCommerce funcional con alta fidelidad visual [14].",
-      technicalImplementation: "Gestión de catálogo mediante JSON dinámico y técnicas de CSS avanzado para optimización de performance [15].",
-      impactDeliverables: "Sitio responsivo con cobertura del 90% de dispositivos y reconocimiento por excelencia ejecutiva internacional [15, 16]."
+      problemStatement: "Transformación de una marca física en un ecosistema eCommerce funcional con alta fidelidad visual.",
+      technicalImplementation: "Gestión de catálogo mediante JSON dinámico y técnicas de CSS avanzado para optimización de performance.",
+      impactDeliverables: "Sitio responsivo con cobertura del 90% de dispositivos y reconocimiento por excelencia ejecutiva internacional."
     },
     tech: ["JavaScript", "JSON", "CSS3", "Responsive Design"],
     links: { demo: "https://www.behance.net/gallery/107557151/Barcolana-Web-Design", code: "#" },
@@ -133,9 +133,9 @@ export const projects = [
     category: "Frontend & Accessibility Engineering",
     description: "Desarrollo integral y localización multilingüe para el sector hotelero de lujo.",
     details: {
-      problemStatement: "Liderazgo técnico para crear una presencia digital premium sin activos de diseño previos, optimizando recursos [17].",
-      technicalImplementation: "Dirección de arte y desarrollo custom en WordPress. Gestión manual de localización bilingüe para mercado internacional [17].",
-      impactDeliverables: "Plataforma 'Pixel-Perfect' autoadministrable que posicionó la marca en el mercado digital de lujo [18]."
+      problemStatement: "Liderazgo técnico para crear una presencia digital premium sin activos de diseño previos, optimizando recursos.",
+      technicalImplementation: "Dirección de arte y desarrollo custom en WordPress. Gestión manual de localización bilingüe para mercado internacional.",
+      impactDeliverables: "Plataforma 'Pixel-Perfect' autoadministrable que posicionó la marca en el mercado digital de lujo."
     },
     tech: ["WordPress", "Elementor", "Photoshop", "Localización"],
     links: { demo: "https://www.behance.net/gallery/107559393/Orchid-House-Hotels-Web-Design", code: "#" },
@@ -148,9 +148,9 @@ export const projects = [
     category: "Frontend & Accessibility Engineering",
     description: "Optimización de activos digitales críticos bajo plazos de entrega extremos para farmacéutica global.",
     details: {
-      problemStatement: "Necesidad de actualización inmediata de activos informativos debido a diferencias horarias con equipos internacionales [19].",
-      technicalImplementation: "Resolución de crisis técnica en 4 horas y optimización de arquitectura de información para despliegue rápido [19].",
-      impactDeliverables: "Lanzamiento de campaña sin retrasos y cumplimiento de rigurosos estándares de marca corporativa [19]."
+      problemStatement: "Necesidad de actualización inmediata de activos informativos debido a diferencias horarias con equipos internacionales.",
+      technicalImplementation: "Resolución de crisis técnica en 4 horas y optimización de arquitectura de información para despliegue rápido.",
+      impactDeliverables: "Lanzamiento de campaña sin retrasos y cumplimiento de rigurosos estándares de marca corporativa."
     },
     tech: ["Illustrator", "Digital Design", "Crisis Management"],
     links: { demo: "https://www.behance.net/gallery/107799015/Infografia-Mdico-ConSentido-Sanofi", code: "#" },
@@ -163,9 +163,9 @@ export const projects = [
     category: "Frontend & Accessibility Engineering",
     description: "Interfaz industrial de alto impacto para equipamiento de fitness profesional.",
     details: {
-      problemStatement: "Traducción de la identidad de marca física robusta a una experiencia digital de ingeniería de precisión [20].",
-      technicalImplementation: "Estructuración de navegación técnica para catálogos extensos utilizando arquitecturas de información modernas [20].",
-      impactDeliverables: "Plataforma visualmente coherente que mejoró la percepción digital y la generación de leads técnicos [21]."
+      problemStatement: "Traducción de la identidad de marca física robusta a una experiencia digital de ingeniería de precisión.",
+      technicalImplementation: "Estructuración de navegación técnica para catálogos extensos utilizando arquitecturas de información modernas.",
+      impactDeliverables: "Plataforma visualmente coherente que mejoró la percepción digital y la generación de leads técnicos."
     },
     tech: ["HTML5", "CSS3", "UI/UX Architecture"],
     links: { demo: "https://www.behance.net/gallery/107558735/Hammer-Strength-Web-Design", code: "#" },
