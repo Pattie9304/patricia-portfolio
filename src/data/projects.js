@@ -173,3 +173,115 @@ export const projects = [
     gallery: [{ type: "image", src: hammerStrength__thumbnailImg, alt: "Industrial UI" }]
   }
 ];
+
+export const projectsEN = [
+  {
+    id: 1,
+    title: "JetDevs: Aviation Monitoring Dashboard",
+    category: "Full-Stack Development",
+    description: "Real-time global flight tracking platform engineered for high-availability and resilient data rendering [3].",
+    details: {
+      problemStatement: "Optimizing latency in critical aviation data visualization to support real-time operational decision-making [4].",
+      technicalImplementation: "Integrated AviationStack API using a React/Vite architecture with asynchronous state management and Mock Data Fallbacks to ensure 100% uptime [4].",
+      impactDeliverables: "High-performance interface with optimized rendering and API failure resilience, eliminating data visualization bottlenecks [3, 4]."
+    },
+    tech: ["React.js", "Vite", "RESTful API", "React Router"],
+    // Mantén las mismas variables de imagen (ej. jetDevs__thumbnail)
+  },
+  {
+    id: 2,
+    title: "Around the US: Scalable Social Platform",
+    category: "Full-Stack Development",
+    description: "Full-Stack interactive platform featuring secure media management and a RESTful architecture [3, 5].",
+    details: {
+      problemStatement: "Architecting a robust infrastructure for user data persistence and scalable multimedia content sharing [6].",
+      technicalImplementation: "Developed a Node.js/Express backend with MongoDB. Implemented a secure RESTful API layer with rigorous data validation [5, 7].",
+      impactDeliverables: "Deployed a CI/CD-ready platform ensuring data integrity and strict adherence to user privacy standards [5, 7]."
+    },
+    tech: ["Node.js", "Express.js", "MongoDB", "React", "REST API"],
+  },
+  {
+    id: 3,
+    title: "Button Generator Code",
+    category: "Frontend & Accessibility Engineering",
+    description: "Operational efficiency tool for generating WCAG 2.1 compliant accessible code [8].",
+    details: {
+      problemStatement: "Mitigating significant legal risks (ADA Compliance) and removing UI content editing bottlenecks [1, 8].",
+      technicalImplementation: "Engineered dynamic contrast logic in React for real-time readability calculations and a clean-code CSS modular architecture [8].",
+      impactDeliverables: "Achieved 4-8 hours of weekly manual UI maintenance savings and ensured 'accessibility by design' across the organization [9]."
+    },
+    tech: ["React", "WCAG 2.1", "ADA Compliance", "CSS Modules"],
+  },
+  {
+    id: 4,
+    title: "Interactive Book: Onboarding Experience",
+    category: "Frontend & Accessibility Engineering",
+    description: "Interactive MVP designed to optimize employee knowledge retention during corporate integration [10].",
+    details: {
+      problemStatement: "Replacing inefficient static manuals with a dynamic learning experience to accelerate employee ramp-up time [10, 11].",
+      technicalImplementation: "Defined complex navigation flows and rapid prototyping to validate the innovation strategy before the CPO in 48 hours [10, 12].",
+      impactDeliverables: "Established animated prototyping as the team's new standard, securing immediate executive approval for the product roadmap [11, 12]."
+    },
+    tech: ["Figma", "UX Strategy", "Prototyping", "Motion Design"],
+  },
+  {
+    id: 5,
+    title: "Email Marketing Engineering: CRM Solutions",
+    category: "CRM & Email Marketing Engineering",
+    description: "High-complexity responsive newsletter engineering for global brands focused on conversion [13, 14].",
+    details: {
+      problemStatement: "Solving brand visualization fragmentation across critical email clients (Outlook/Gmail) and improving low engagement rates [14].",
+      technicalImplementation: "Modular coding using HTML5/CSS Inline and Salesforce. Implemented Design QA systems to ensure consistent rendering [13, 14].",
+      impactDeliverables: "Significant CTR increase and consolidated visual governance under WCAG accessibility standards [13, 15]."
+    },
+    tech: ["HTML5", "Salesforce", "Email Architecture", "Design QA"],
+  },
+  {
+    id: 6,
+    title: "Barcolana Coffee Shop eCommerce",
+    category: "Frontend & Accessibility Engineering",
+    description: "Development of a digital sales channel with dynamic data architecture [15].",
+    details: {
+      problemStatement: "Transforming a physical brand into a functional, high-fidelity eCommerce ecosystem [15].",
+      technicalImplementation: "Catalog management via dynamic JSON and advanced CSS performance optimization techniques [16].",
+      impactDeliverables: "Responsive site with 90% device coverage; received international recognition from the Directorate for execution excellence [2, 16]."
+    },
+    tech: ["JavaScript", "JSON", "CSS3", "Responsive Design"],
+  },
+  {
+    id: 7,
+    title: "Orchid House Polanco: Luxury Hospitality Site",
+    category: "Frontend & Accessibility Engineering",
+    description: "End-to-end development and multilingual localization for the luxury hospitality sector [17].",
+    details: {
+      problemStatement: "Technical leadership to create a premium digital presence without prior design assets, optimizing limited resources [17].",
+      technicalImplementation: "Art direction and custom WordPress development. Managed manual bilingual localization for the international market [17, 18].",
+      impactDeliverables: "Pixel-perfect, self-managed platform that successfully positioned the brand in the digital luxury market [18, 19]."
+    },
+    tech: ["WordPress", "Elementor", "Localization", "UI/UX"],
+  },
+  {
+    id: 8,
+    title: "Sanofi: Autocuidado Crisis Management",
+    category: "Frontend & Accessibility Engineering",
+    description: "Optimization of critical digital assets under extreme deadlines for a global pharmaceutical leader [19].",
+    details: {
+      problemStatement: "Immediate update of informative assets required due to time-zone differences with European global teams [20].",
+      technicalImplementation: "Technical crisis resolution within 4 hours (vs. 24h deadline). Optimized information architecture for rapid deployment [20].",
+      impactDeliverables: "Campaign launch with zero delays, strictly adhering to rigorous corporate brand and compliance standards [13, 20]."
+    },
+    tech: ["Illustrator", "Information Architecture", "Crisis Management"],
+  },
+  {
+    id: 9,
+    title: "Hammer Strength: Performance UI",
+    category: "Frontend & Accessibility Engineering",
+    description: "High-impact industrial interface for professional fitness engineering [21].",
+    details: {
+      problemStatement: "Translating a robust physical brand identity into a digital experience that projects precision engineering [21].",
+      technicalImplementation: "Structured technical navigation for extensive catalogs using modern information architectures [21].",
+      impactDeliverables: "Visually coherent platform that improved digital brand perception and technical lead generation [22]."
+    },
+    tech: ["HTML5", "CSS3", "UI/UX Architecture"],
+  }
+];
