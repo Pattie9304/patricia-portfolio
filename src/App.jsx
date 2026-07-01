@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Download, X, Globe, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-// Se importan ambas versiones de los datos para el sistema bilingüe
+// Importación de ambas fuentes de datos (ES/EN)
 import { projects as projectsES, projectsEN } from './data/projects';
 import patriciaImg from './assets/PatriciaHiguera.png';
 import myCV_ES from './assets/Patricia_Higuera_CV_ES.pdf';
@@ -45,11 +45,16 @@ const translations = {
 const App = () => {
   const [lang, setLang] = useState('es');
   const [filter, setFilter] = useState('Todos');
-  const [selectedProject, setSelectedProject] = useState(null);
+  // Cambio clave: Guardamos el ID para permitir el cambio de idioma dentro del modal
+  const [selectedProjectId, setSelectedProjectId] = useState(null); 
+  
   const t = translations[lang];
 
-  // Lógica para alternar la fuente de datos según el idioma seleccionado
+  // Selección dinámica de la fuente de datos
   const projectData = lang === 'es' ? projectsES : projectsEN;
+
+  // Buscamos el proyecto activo basado en el ID y el idioma actual
+  const activeProject = projectData.find(p => p.id === selectedProjectId);
 
   const filteredProjects = projectData.filter(p => 
     filter === 'Todos' || filter === 'All' || p.category === filter
@@ -58,18 +63,18 @@ const App = () => {
   return (
     <div className="bg-brand-cream text-brand-plum font-sans selection:bg-brand-coral min-h-screen">
       
-      {/* Botón de Idioma Estratégico */}
+      {/* Navegación / Selector de Idioma */}
       <nav className="fixed top-6 right-6 z-50">
         <button 
           onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
           className="bg-brand-plum text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-brand-coral transition-all shadow-lg font-bold"
         >
           <Globe size={18} />
-          {lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+          {lang === 'es' ? 'English' : 'Español'}
         </button>
       </nav>
 
-      {/* Hero Section alineada a tu perfil internacional */}
+      {/* Hero Section */}
       <header className="container mx-auto px-6 pt-32 pb-12 text-center">
         <motion.img 
           src={patriciaImg} 
@@ -87,7 +92,7 @@ const App = () => {
         </a>
       </header>
 
-      {/* Sección "Sobre Mí" recuperada del Perfil Profesional */}
+      {/* Sección Sobre Mí */}
       <section className="bg-white/50 py-20 border-y border-brand-plum/5">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="grid md:grid-cols-3 gap-12 items-center">
@@ -101,7 +106,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Grid de Proyectos Seleccionados */}
+      {/* Grid de Proyectos */}
       <section className="container mx-auto px-6 py-20">
         <h2 className="text-center text-3xl font-black mb-12 uppercase tracking-widest">{t.projectsTitle}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -110,7 +115,7 @@ const App = () => {
               key={project.id}
               layout
               className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all cursor-pointer border border-brand-plum/5 group"
-              onClick={() => setSelectedProject(project)}
+              onClick={() => setSelectedProjectId(project.id)}
             >
               <div className="overflow-hidden h-60">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -127,13 +132,13 @@ const App = () => {
         </div>
       </section>
 
-      {/* Footer reincorporado */}
+      {/* Footer */}
       <footer className="bg-brand-plum text-brand-cream py-12 mt-20">
         <div className="container mx-auto px-6 text-center">
           <div className="flex justify-center gap-8 mb-8">
             <a href="https://github.com/Pattie9304" target="_blank" rel="noreferrer" className="hover:text-brand-coral transition-colors"><Github /></a>
             <a href="https://linkedin.com/in/patriciahiguera" target="_blank" rel="noreferrer" className="hover:text-brand-coral transition-colors"><Linkedin /></a>
-            <a href="mailto:pattie9304@example.com" className="hover:text-brand-coral transition-colors"><Mail /></a>
+            <a href="mailto:pattie9304@gmail.com" className="hover:text-brand-coral transition-colors"><Mail /></a>
           </div>
           <p className="text-sm opacity-60 font-medium tracking-wide">
             {t.footerText}
@@ -141,48 +146,48 @@ const App = () => {
         </div>
       </footer>
 
-      {/* Modal Senior Bilingüe */}
+      {/* Modal con Terminología Senior */}
       <AnimatePresence>
-        {selectedProject && (
+        {activeProject && (
           <motion.div 
             className="fixed inset-0 z-50 bg-brand-plum/95 backdrop-blur-md flex items-center justify-center p-4"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
+            onClick={() => setSelectedProjectId(null)}
           >
             <motion.div 
-              className="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
               onClick={e => e.stopPropagation()}
               initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
             >
               <div className="p-8 md:p-12 space-y-10">
                 <div className="flex justify-between items-start border-b pb-6">
-                  <h2 className="text-4xl font-black text-brand-plum leading-tight">{selectedProject.title}</h2>
-                  <button onClick={() => setSelectedProject(null)} className="p-2 hover:bg-brand-coral hover:text-white rounded-full transition-colors"><X size={30} /></button>
+                  <h2 className="text-4xl font-black text-brand-plum leading-tight">{activeProject.title}</h2>
+                  <button onClick={() => setSelectedProjectId(null)} className="p-2 hover:bg-brand-coral hover:text-white rounded-full transition-colors"><X size={30} /></button>
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-12">
                   <div className="space-y-8">
                     <section>
                       <h4 className="text-brand-coral font-black uppercase text-xs tracking-widest mb-3">{t.modalHeaders.problem}</h4>
-                      <p className="text-xl font-medium">{selectedProject.details.problemStatement}</p>
+                      <p className="text-xl font-medium leading-relaxed">{activeProject.details.problemStatement}</p>
                     </section>
                     <section>
                       <h4 className="text-brand-coral font-black uppercase text-xs tracking-widest mb-3">{t.modalHeaders.tech}</h4>
-                      <p className="text-brand-plum/80 leading-relaxed italic">{selectedProject.details.technicalImplementation}</p>
+                      <p className="text-brand-plum/80 leading-relaxed italic">{activeProject.details.technicalImplementation}</p>
                     </section>
                     <div className="bg-brand-cream p-8 rounded-2xl border-l-8 border-brand-coral shadow-inner">
                       <h4 className="text-brand-coral font-black uppercase text-xs tracking-widest mb-2">{t.modalHeaders.impact}</h4>
-                      <p className="font-bold text-lg">{selectedProject.details.impactDeliverables}</p>
+                      <p className="font-bold text-lg text-brand-plum">{activeProject.details.impactDeliverables}</p>
                     </div>
                   </div>
                   
                   <div className="space-y-4">
-                    {selectedProject.gallery.map((item, i) => (
+                    {activeProject.gallery.map((item, i) => (
                       <div key={i} className="rounded-xl overflow-hidden border shadow-sm">
                         {item.type === 'video' ? (
                           <iframe src={item.src} className="w-full aspect-video" allowFullScreen title={item.alt} frameBorder="0" />
                         ) : (
-                          <img src={item.src} alt={item.alt} className="w-full h-auto hover:scale-110 transition-transform duration-700" />
+                          <img src={item.src} alt={item.alt} className="w-full h-auto hover:scale-105 transition-transform duration-500" />
                         )}
                       </div>
                     ))}
