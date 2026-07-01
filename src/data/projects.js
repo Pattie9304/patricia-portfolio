@@ -219,6 +219,12 @@ export const projectsEN = [
       impactDeliverables: "Achieved 4-8 hours of weekly manual UI maintenance savings and ensured 'accessibility by design' across the organization [9]."
     },
     tech: ["React", "WCAG 2.1", "ADA Compliance", "CSS Modules"],
+        links: { demo: "https://youtu.be/rZycU5tuV0c", code: "https://github.com/Pattie9304" },
+    image: buttonGenerator__thumbnailImg,
+    gallery: [
+      { type: "video", src: "https://www.youtube.com/embed/rZycU5tuV0c", alt: "Accessibility Demo" },
+      { type: "image", src: buttonGenerator__thumbnailImg, alt: "Interface Preview" }
+    ]
   },
   {
     id: 4,
@@ -231,6 +237,12 @@ export const projectsEN = [
       impactDeliverables: "Established animated prototyping as the team's new standard, securing immediate executive approval for the product roadmap [11, 12]."
     },
     tech: ["Figma", "UX Strategy", "Prototyping", "Motion Design"],
+        links: { demo: "https://www.behance.net/gallery/199491891/Gaceta-UNAM-Wireframe", code: "#" },
+    image: onboardingBook__prototypeThumb,
+    gallery: [
+      { type: "image", src: onboardingBook__frame1, alt: "Animation Frame 1" },
+      { type: "image", src: onboardingBook__frame6, alt: "Final State" }
+    ]
   },
   {
     id: 5,
@@ -243,6 +255,9 @@ export const projectsEN = [
       impactDeliverables: "Significant CTR increase and consolidated visual governance under WCAG accessibility standards [13, 15]."
     },
     tech: ["HTML5", "Salesforce", "Email Architecture", "Design QA"],
+        links: { demo: "https://www.behance.net/gallery/199490947/Mdico-conSentido-Email-Redesign", code: "#" },
+    image: sanofi__medicoConSentidoImg,
+    gallery: [{ type: "image", src: sanofi__medicoConSentidoImg, alt: "CRM Campaign" }]
   },
   {
     id: 6,
@@ -255,6 +270,9 @@ export const projectsEN = [
       impactDeliverables: "Responsive site with 90% device coverage; received international recognition from the Directorate for execution excellence [2, 16]."
     },
     tech: ["JavaScript", "JSON", "CSS3", "Responsive Design"],
+        links: { demo: "https://www.behance.net/gallery/107557151/Barcolana-Web-Design", code: "#" },
+    image: barcolana__thumbnailImg,
+    gallery: [{ type: "image", src: barcolana__thumbnailImg, alt: "eCommerce UI" }]
   },
   {
     id: 7,
@@ -267,6 +285,9 @@ export const projectsEN = [
       impactDeliverables: "Pixel-perfect, self-managed platform that successfully positioned the brand in the digital luxury market [18, 19]."
     },
     tech: ["WordPress", "Elementor", "Localization", "UI/UX"],
+    links: { demo: "https://www.behance.net/gallery/107559393/Orchid-House-Hotels-Web-Design", code: "#" },
+    image: orchidHouse__thumbnailImg,
+    gallery: [{ type: "image", src: orchidHouse__thumbnailImg, alt: "Luxury Interface" }]
   },
   {
     id: 8,
@@ -279,6 +300,9 @@ export const projectsEN = [
       impactDeliverables: "Campaign launch with zero delays, strictly adhering to rigorous corporate brand and compliance standards [13, 20]."
     },
     tech: ["Illustrator", "Information Architecture", "Crisis Management"],
+        links: { demo: "https://www.behance.net/gallery/107799015/Infografia-Mdico-ConSentido-Sanofi", code: "#" },
+    image: sanofi__autocuidadoImg,
+    gallery: [{ type: "image", src: sanofi__autocuidadoImg, alt: "Crisis Assets" }]
   },
   {
     id: 9,
@@ -291,5 +315,8 @@ export const projectsEN = [
       impactDeliverables: "Visually coherent platform that improved digital brand perception and technical lead generation [22]."
     },
     tech: ["HTML5", "CSS3", "UI/UX Architecture"],
+        links: { demo: "https://www.behance.net/gallery/107558735/Hammer-Strength-Web-Design", code: "#" },
+    image: hammerStrength__thumbnailImg,
+    gallery: [{ type: "image", src: hammerStrength__thumbnailImg, alt: "Industrial UI" }]
   }
 ];
