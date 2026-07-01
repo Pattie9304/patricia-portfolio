@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Download, X, Globe, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-// Importación de ambas fuentes de datos (ES/EN)
+// Se importan ambas fuentes de datos para el sistema dinámico de idiomas
 import { projects as projectsES, projectsEN } from './data/projects';
 import patriciaImg from './assets/PatriciaHiguera.png';
 import myCV_ES from './assets/Patricia_Higuera_CV_ES.pdf';
@@ -45,15 +45,15 @@ const translations = {
 const App = () => {
   const [lang, setLang] = useState('es');
   const [filter, setFilter] = useState('Todos');
-  // Cambio clave: Guardamos el ID para permitir el cambio de idioma dentro del modal
+  // Estado basado en ID para evitar el error de pantalla blanca al traducir
   const [selectedProjectId, setSelectedProjectId] = useState(null); 
   
   const t = translations[lang];
 
-  // Selección dinámica de la fuente de datos
+  // Selección dinámica de la fuente de datos (Español o Inglés)
   const projectData = lang === 'es' ? projectsES : projectsEN;
 
-  // Buscamos el proyecto activo basado en el ID y el idioma actual
+  // Derivamos el proyecto activo buscando el ID dentro de la fuente de datos actual
   const activeProject = projectData.find(p => p.id === selectedProjectId);
 
   const filteredProjects = projectData.filter(p => 
@@ -63,7 +63,7 @@ const App = () => {
   return (
     <div className="bg-brand-cream text-brand-plum font-sans selection:bg-brand-coral min-h-screen">
       
-      {/* Navegación / Selector de Idioma */}
+      {/* Botón de Cambio de Idioma */}
       <nav className="fixed top-6 right-6 z-50">
         <button 
           onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
@@ -92,7 +92,7 @@ const App = () => {
         </a>
       </header>
 
-      {/* Sección Sobre Mí */}
+      {/* Sección Sobre Mí (Basada en tu Perfil Profesional) */}
       <section className="bg-white/50 py-20 border-y border-brand-plum/5">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="grid md:grid-cols-3 gap-12 items-center">
@@ -146,7 +146,7 @@ const App = () => {
         </div>
       </footer>
 
-      {/* Modal con Terminología Senior */}
+      {/* Modal Senior Bilingüe */}
       <AnimatePresence>
         {activeProject && (
           <motion.div 
